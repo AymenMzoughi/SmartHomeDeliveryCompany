@@ -3,18 +3,21 @@
 #include<QtDebug>
 #include<QDate>
 #include<QObject>
+#include <QMessageBox>
+#include <QVBoxLayout>
 
-employe::employe()
+Employe::Employe()
 {
     idemp=0;
-    numtel=0;
     nom="";
     prenom="";
+    date="";
+    numtel=0;
     adr="";
     mail="";
-    date="";
+
 }
-employe::employe(int idemp,QString nom,QString prenom,QString date,int numtel,QString adr,QString mail)
+Employe::Employe(int idemp,QString nom,QString prenom,QString date,int numtel,QString adr,QString mail)
 {
     this->idemp=idemp;
     this->nom=nom;
@@ -24,121 +27,122 @@ employe::employe(int idemp,QString nom,QString prenom,QString date,int numtel,QS
     this->adr=adr;
     this->mail=mail;
 }
-int employe::getidemp()
+int Employe::getidemp()
 {
     return idemp;
 }
-int employe:: getnumtel()
+int Employe:: getnumtel()
 {
     return numtel;
 }
-QString employe:: getnom()
+QString Employe:: getnom()
 {
     return nom;
 }
-QString employe:: getprenom()
+QString Employe:: getprenom()
 {
     return prenom;
 }
 
-QString employe:: getdate()
+QString Employe:: getdate()
 {
     return date;
 }
 
-QString employe:: getadr()
+QString Employe:: getadr()
 {
     return adr;
 }
 
-QString employe:: getmail()
+QString Employe:: getmail()
 {
     return mail;
 }
-void employe ::setnom(QString n)
+void Employe ::setnom(QString n)
 {
     nom=n;
 }
-void employe ::setprenom(QString p)
+void Employe ::setprenom(QString p)
 {
     prenom=p;
 }
-void employe::setdate(QString dns)
+void Employe::setdate(QString dns)
 {
     date=dns;
 
 }
-void employe ::setadr(QString a)
+void Employe ::setadr(QString a)
 {
     adr=a;
 }
-void employe :: setmail(QString m)
+void Employe :: setmail(QString m)
 {
     mail=m;
 }
-void employe :: setidemp(int id)
+void Employe :: setidemp(int id)
 {
     idemp=id;
 }
-void employe::setnumtel(int nt)
+void Employe::setnumtel(int nt)
 {
     numtel=nt;
 }
-bool employe :: ajouter()
+bool Employe :: ajouter()
 {
     QSqlQuery query;
     QString idemp_string=QString::number(idemp);
     QString numtel_string=QString::number(numtel);
     QDate date_date =QDate::fromString(date,"dd/MM/yy");
-          query.prepare("INSERT INTO COMMANDE (IDEMP,NOM,PRENOM,DATEDENAISSANCE,NUMEROTEL,ADRESSE,EMAIL) "
-                        "VALUES (:IDEMP,:NOM,:PRENOM,:DATEDENAISSANCE,:NUMEROTEL,:ADRESSE,:EMAIL)");
+          query.prepare("INSERT INTO EMPLOYE (IDEMP,NOM,PRENOM,DATEN,NUMTEL,ADR,MAIL) "
+                        "VALUES (:IDEMP,:NOM,:PRENOM,:DATEN,:NUMTEL,:ADR,:MAIL)");
           query.bindValue(":IDEMP", idemp_string);
           query.bindValue(":NOM",nom);
           query.bindValue(":PRENOM",prenom);
-             query.bindValue(":DATEDENAISSANCE",date_date);
-          query.bindValue(":NUMEROTEL",numtel_string);
-          query.bindValue(":ADRESSE",adr);
-          query.bindValue(":EMAIL",mail);
+          query.bindValue(":DATEN",date_date);
+          query.bindValue(":NUMTEL",numtel_string);
+          query.bindValue(":ADR",adr);
+          query.bindValue(":MAIL",mail);
+
           return query.exec();
 
 }
-bool employe ::modifier()
+bool Employe ::modifier()
 {
     QSqlQuery query;
     QString idemp_string=QString::number(idemp);
     QString numtel_string=QString::number(numtel);
     QDate date_date =QDate::fromString(date,"dd/MM/yy");
-   query.prepare(" UPDATE COMMANDE SET NOM=:NOM,PRENOM=:PRENOM,DATEDENAISSANCE=:DATEDENAISSANCE,NUMEROTEL=:NUMEROTEL,ADRESSE=:ADRESSE,EMAIL=:EMAIL WHERE IDEMP=:IDEMP");
+   query.prepare(" UPDATE EMPLOYE SET NOM=:NOM,PRENOM=:PRENOM,DATEN=:DATEN,NUMTEL=:NUMTEL,ADR=:ADR,MAIL=:MAIL WHERE IDEMP=:IDEMP");
    query.bindValue(":IDEMP", idemp_string);
    query.bindValue(":NOM",nom);
    query.bindValue(":PRENOM",prenom);
-   query.bindValue(":DATEDENAISSANCE",date_date);
-   query.bindValue(":NUMEROTEL",numtel_string);
-   query.bindValue(":ADRESSE",adr);
-   query.bindValue(":EMAIL",mail);
+   query.bindValue(":DATEN",date_date);
+   query.bindValue(":NUMTEL",numtel_string);
+   query.bindValue(":ADR",adr);
+   query.bindValue(":MAIL",mail);
    return query.exec();
 
 }
 
-QSqlQueryModel* employe::afficher()
+QSqlQueryModel* Employe::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT* FROM EMPLOYE");
           model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDEMP"));
           model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM"));
           model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM"));
-          model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATE DE NAISSANCE"));
+          model->setHeaderData(3, Qt::Horizontal, QObject::tr("DATEN"));
           model->setHeaderData(4, Qt::Horizontal, QObject::tr("NUMTEL"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("ADRESSE"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("MAIL"));
+          model->setHeaderData(5, Qt::Horizontal, QObject::tr("ADR"));
+          model->setHeaderData(6, Qt::Horizontal, QObject::tr("MAIL"));
 
     return model;
 
 
 }
-bool employe::supprimer(int idemp)
+bool Employe::supprimer(int idemp)
 {           QSqlQuery query;
-            query.prepare(" Delete from COMMANDE where IDEMP=:IDEMP");
+            query.prepare(" Delete from EMPLOYE where IDEMP=:IDEMP");
             query.bindValue(0,idemp);
            return query.exec();
 
@@ -146,34 +150,29 @@ bool employe::supprimer(int idemp)
 }
 
 
-/*QSqlQueryModel* Commande::chercher(int index,QString text)
+QSqlQueryModel* Employe::chercher(int index,QString text)
 {
 QSqlQuery query;
     QSqlQueryModel* model=new QSqlQueryModel();
     if(index==0)
-   { query.prepare("SELECT * FROM COMMANDE where MODEDEPAIMENT like '"+text+"'");
+   { query.prepare("SELECT * FROM EMPLOYE where IDEMP like '"+text+"'");
      query.exec();
      model->setQuery(query);
-     }
+    }
+
    if(index==1)
       {
-       query.prepare("SELECT * FROM COMMANDE where REF_CLIENT like '"+text+"'");
+       query.prepare("SELECT * FROM EMPLOYE where NOM like '"+text+"'");
            query.exec();
            model->setQuery(query);
    }
    if(index==2)
       {
-       query.prepare("SELECT * FROM COMMANDE where Adresse like '"+text+"'");
-           query.exec();
-           model->setQuery(query);
-   }
-   if(index==3)
-      {
-       query.prepare("SELECT * FROM COMMANDE where NUMERO like '"+text+"'");
+       query.prepare("SELECT * FROM EMPLOYE where NUMTEL like '"+text+"'");
            query.exec();
            model->setQuery(query);
    }
 
     return model;
 
-}*/
+}

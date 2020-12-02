@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::Envoiem *ui;
+
+private slots:
+    void sendMail();
+    void mailSent(QString);
+
 };
 
 #endif // ENVOIEM_H

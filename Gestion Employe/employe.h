@@ -4,12 +4,12 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 
-  class employe
+  class Employe
 {
     public:
-    employe();
+    Employe();
 
-      employe(int,QString,QString,QString,int,QString,QString);
+      Employe(int,QString,QString,QString,int,QString,QString);
       int getidemp();
       QString getnom();
       QString getprenom();
@@ -34,7 +34,9 @@
   private:
       QString nom,prenom,date,adr,mail;
       int idemp,numtel;
+
   };
+
 
 
 #endif // EMPLOYE_H
