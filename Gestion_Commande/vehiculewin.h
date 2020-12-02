@@ -22,6 +22,8 @@ private slots:
 
     void on_Modifier_clicked();
 
+    void on_chercherv_clicked();
+
 private:
     Ui::Vehiculewin *ui;
     Vehicule V1;

@@ -6,17 +6,20 @@ class Commande
 {
 public:
     Commande();
-    Commande(int,QString,QString,QString,QString,float,int);
+    Commande(int,QString,QString,QString,float,int,QString);
+    bool verifvidestring(QString);
+    bool verifint(int);
+    bool veriffloat(float);
     int getnum();
     int getidclient();
+    QString getidemp();
+    void setidemp(QString);
     QString getdescription();
     int getcode_colis();
-    QString getadresse();
     QString getdatecommande();
     QString getmodepaiment();
     float getmontant();
     void setdescription(QString);
-    void setadresse(QString);
     void setdatecommande(QString);
     void setmodepaiment(QString);
     void setmontant(float);
@@ -28,10 +31,13 @@ public:
     bool modifier();
     QSqlQueryModel* afficher();
     QSqlQueryModel* chercher(int,QString);
+    bool verifierid(int);
+    QSqlQueryModel *afficher_idclient();
+    QSqlQueryModel *afficher_idemp();
 private :
 int num;
 int idclient;
-QString description,adresse,datedecommande,modepaiment;
+QString description,datedecommande,modepaiment,idemp;
 float montant;
 };
 

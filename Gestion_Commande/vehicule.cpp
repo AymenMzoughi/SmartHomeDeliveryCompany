@@ -130,3 +130,111 @@ bool Vehicule :: supprimer(QString matricule)
                query.bindValue(0,matricule);
               return query.exec();
 }
+
+QSqlQueryModel* Vehicule::chercher(int index , QString text)
+{
+    QSqlQuery query;
+        QSqlQueryModel* model=new QSqlQueryModel();
+        if(index==0)
+       { query.prepare("SELECT * FROM VEHICULE where matricule like '"+text+"'");
+         query.exec();
+         model->setQuery(query);
+         }
+       if(index==1)
+          {
+           query.prepare("SELECT * FROM VEHICULE where marque like '"+text+"'");
+               query.exec();
+               model->setQuery(query);
+       }
+       if(index==2)
+          {
+           query.prepare("SELECT * FROM VEHICULE where typev like '"+text+"'");
+               query.exec();
+               model->setQuery(query);
+       }
+       if(index==3)
+          {
+           query.prepare("SELECT * FROM VEHICULE where typecarburant like '"+text+"'");
+               query.exec();
+            model->setQuery(query);
+       }
+
+        return model;
+
+
+}
+int Vehicule::statistique1()
+{ QSqlQuery query;
+        int count=0 ;
+        QSqlQuery requete("select * from Vehicule where typev like 'camion' ") ;
+        while(requete.next())
+        {
+                count++ ;
+        }
+
+    return count ;
+
+}
+int Vehicule::statistique2()
+{ QSqlQuery query;
+        int count=0 ;
+        QSqlQuery requete("select * from Vehicule where typev like 'moto' ") ;
+        while(requete.next())
+        {
+                count++ ;
+        }
+
+    return count ;
+
+}
+int Vehicule::statistique3()
+{
+        int count=0 ;
+        QSqlQuery requete("select * from Vehicule where typev like 'tricycle' ") ;
+        while(requete.next())
+        {
+                count++ ;
+        }
+
+    return count ;
+
+}
+bool Vehicule ::verifvide(QString S)
+  {      bool test=true;
+        if(S.length()==0)
+         {  test=false;
+            return test;}
+        return test;
+}
+ QSqlQueryModel* Vehicule:: affiche_employer()
+ {
+
+     QSqlQueryModel * model =new QSqlQueryModel();
+     model->setQuery("select ID_EMP from employe");
+     return model ;
+ }
+ bool Vehicule::verifierMatricule(QString Matricule)
+ {QSqlQuery  query;
+ bool test=false;
+     query.prepare("Select * FROM vehicule where matricule=:matricule");
+      query.bindValue(":matricule",Matricule);
+ if(query.exec()&&query.next())
+ {     test=true;
+      return test;
+ }
+ return test;
+ }
+ bool Vehicule ::verifint(QString S)
+ {bool test=false;
+     char *suiteChaine;
+
+         char *myChar = S.toLatin1().data();
+         suiteChaine =strstr(myChar,"Tunis");
+         if (suiteChaine != NULL)
+         {  test=true;
+             return test;
+         }
+
+return test;
+ }
+

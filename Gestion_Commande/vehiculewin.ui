@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1287</width>
-    <height>582</height>
+    <width>1473</width>
+    <height>801</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,10 @@ background: blue;
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>30</y>
-     <width>1201</width>
-     <height>531</height>
+     <width>1431</width>
+     <height>681</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -42,9 +42,9 @@ background: rgb(255, 255, 127);
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>50</y>
-      <width>411</width>
+      <x>20</x>
+      <y>90</y>
+      <width>421</width>
       <height>421</height>
      </rect>
     </property>
@@ -52,7 +52,7 @@ background: rgb(255, 255, 127);
      <string notr="true">QLineEdit {
 	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border: 3px solid gray;
-border-radius: 40pxt;
+border-radius: 70pxt;
 background: white;
 }
 QDateEdit {
@@ -62,10 +62,11 @@ border-radius: 40pxt;
 background: white;
 }
 QComboBox {
-	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
-border: 3px solid gray;
-border-radius: 40pxt;
-background: white;
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c, stop: 0.5 #66b, stop: 1 #77c);
+border-width: 1px;
+border-color: #339;
+border-style: solid;
 }
 QPushButton
 {
@@ -74,27 +75,105 @@ background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, sto
 border-width: 1px;
 border-color: #339;
 border-style: solid;
-border-radius: 7;
-padding: 3px;
-font-size: 10px;
-padding-left: 5px;
-padding-right: 5px;
-min-width: 50px;
-max-width: 50px;
-min-height: 13px;
-max-height: 13px;
+
 }
 QPushButton:pressed
 {
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
 }
-QTabWidget{
+QTabWidget::pane {
+    border: 1px solid black;
+    background: rgb(135, 135, 220);
+}
 
-adding: 5px;
-border-radius: 5px;
-background-color:#d7caff;
-font-weight: bold;
+QTabWidget::tab-bar:top {
+    top: 1px;
+}
 
+QTabWidget::tab-bar:bottom {
+    bottom: 1px;
+}
+
+QTabWidget::tab-bar:left {
+    right: 1px;
+}
+
+QTabWidget::tab-bar:right {
+    left: 1px;
+}
+
+QTabBar::tab {
+    border: 1px solid black;
+}
+
+QTabBar::tab:selected {
+   color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c, stop: 0.5 #66b, stop: 1 #77c);
+border-width: 1px;
+border-color: #339;
+border-style: solid;
+}
+
+QTabBar::tab:!selected {
+    background: silver;
+}
+
+QTabBar::tab:!selected:hover {
+    background: #999;
+}
+
+QTabBar::tab:top:!selected {
+    margin-top: 3px;
+}
+
+QTabBar::tab:bottom:!selected {
+    margin-bottom: 3px;
+}
+
+QTabBar::tab:top, QTabBar::tab:bottom {
+    min-width: 8ex;
+    margin-right: -1px;
+    padding: 5px 10px 5px 10px;
+}
+
+QTabBar::tab:top:selected {
+    border-bottom-color: none;
+}
+
+QTabBar::tab:bottom:selected {
+    border-top-color: none;
+}
+
+QTabBar::tab:top:last, QTabBar::tab:bottom:last,
+QTabBar::tab:top:only-one, QTabBar::tab:bottom:only-one {
+    margin-right: 0;
+}
+
+QTabBar::tab:left:!selected {
+    margin-right: 3px;
+}
+
+QTabBar::tab:right:!selected {
+    margin-left: 3px;
+}
+
+QTabBar::tab:left, QTabBar::tab:right {
+    min-height: 8ex;
+    margin-bottom: -1px;
+    padding: 10px 5px 10px 5px;
+}
+
+QTabBar::tab:left:selected {
+    border-left-color: none;
+}
+
+QTabBar::tab:right:selected {
+    border-right-color: blue;
+}
+
+QTabBar::tab:left:last, QTabBar::tab:right:last,
+QTabBar::tab:left:only-one, QTabBar::tab:right:only-one {
+    margin-bottom: 0;
 }</string>
     </property>
     <property name="currentIndex">
@@ -132,22 +211,12 @@ font-weight: bold;
        <rect>
         <x>10</x>
         <y>120</y>
-        <width>121</width>
+        <width>131</width>
         <height>16</height>
        </rect>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Marque de vehicule&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="marque">
-      <property name="geometry">
-       <rect>
-        <x>140</x>
-        <y>120</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
@@ -223,7 +292,7 @@ font-weight: bold;
       <property name="geometry">
        <rect>
         <x>240</x>
-        <y>310</y>
+        <y>330</y>
         <width>62</width>
         <height>21</height>
        </rect>
@@ -236,7 +305,7 @@ font-weight: bold;
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>310</y>
+        <y>330</y>
         <width>81</width>
         <height>16</height>
        </rect>
@@ -248,8 +317,8 @@ font-weight: bold;
      <widget class="QLineEdit" name="idemp">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>310</y>
+        <x>90</x>
+        <y>330</y>
         <width>113</width>
         <height>22</height>
        </rect>
@@ -278,47 +347,16 @@ font-weight: bold;
        </rect>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QComboBox" name="marquev">
       <property name="geometry">
        <rect>
-        <x>-10</x>
-        <y>0</y>
-        <width>421</width>
-        <height>401</height>
+        <x>140</x>
+        <y>120</y>
+        <width>101</width>
+        <height>22</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QGroupBox
-{
-
-adding: 5px;
-border-radius: 5px;
-background-color:#d7caff;
-font-weight: bold;
-}
-
-</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
      </widget>
-     <zorder>groupBox_2</zorder>
-     <zorder>label_6</zorder>
-     <zorder>numerochassis</zorder>
-     <zorder>label_2</zorder>
-     <zorder>marque</zorder>
-     <zorder>label_5</zorder>
-     <zorder>datecirculation</zorder>
-     <zorder>label_3</zorder>
-     <zorder>typev</zorder>
-     <zorder>label_7</zorder>
-     <zorder>typecarburant</zorder>
-     <zorder>Ajouter</zorder>
-     <zorder>label_8</zorder>
-     <zorder>idemp</zorder>
-     <zorder>label</zorder>
-     <zorder>Matricule</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -381,16 +419,6 @@ font-weight: bold;
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Marque de vehicule&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="marque_2">
-      <property name="geometry">
-       <rect>
-        <x>170</x>
-        <y>110</y>
-        <width>113</width>
-        <height>22</height>
-       </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_14">
@@ -498,47 +526,16 @@ font-weight: bold;
        <string>Modifier</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_3">
+     <widget class="QComboBox" name="marquev_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>411</width>
-        <height>401</height>
+        <x>150</x>
+        <y>110</y>
+        <width>101</width>
+        <height>22</height>
        </rect>
       </property>
-      <property name="styleSheet">
-       <string notr="true">QGroupBox
-{
-
-adding: 5px;
-border-radius: 5px;
-background-color:#d7caff;
-font-weight: bold;
-}
-
-</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
      </widget>
-     <zorder>groupBox_3</zorder>
-     <zorder>label_11</zorder>
-     <zorder>Matricule_2</zorder>
-     <zorder>label_12</zorder>
-     <zorder>numerochassis_2</zorder>
-     <zorder>label_13</zorder>
-     <zorder>marque_2</zorder>
-     <zorder>label_14</zorder>
-     <zorder>datecirculation_2</zorder>
-     <zorder>label_15</zorder>
-     <zorder>typev_2</zorder>
-     <zorder>label_16</zorder>
-     <zorder>typecarburant_2</zorder>
-     <zorder>label_17</zorder>
-     <zorder>idemp_2</zorder>
-     <zorder>Modifier</zorder>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -580,42 +577,13 @@ font-weight: bold;
        <string>Supprimer</string>
       </property>
      </widget>
-     <widget class="QGroupBox" name="groupBox_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>-10</y>
-        <width>411</width>
-        <height>401</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QGroupBox
-{
-
-adding: 5px;
-border-radius: 5px;
-background-color:#d7caff;
-font-weight: bold;
-}
-
-</string>
-      </property>
-      <property name="title">
-       <string/>
-      </property>
-     </widget>
-     <zorder>groupBox_4</zorder>
-     <zorder>label_9</zorder>
-     <zorder>supprimer</zorder>
-     <zorder>supprimer_2</zorder>
     </widget>
    </widget>
    <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>30</y>
+      <y>70</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -628,22 +596,171 @@ font-weight: bold;
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>60</y>
-      <width>721</width>
-      <height>192</height>
+      <y>100</y>
+      <width>951</width>
+      <height>211</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QTableView {
+color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c, stop: 0.5 #66b, stop: 1 #77c);
+border-width: 1px;
+border-color: #339;
+border-style: solid;
+}</string>
+    </property>
+   </widget>
+   <widget class="statistiquev" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>390</y>
+      <width>661</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <widget class="QLabel" name="Camion">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>30</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#0000ff;&quot;&gt;Camion&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="Moto">
+     <property name="geometry">
+      <rect>
+       <x>530</x>
+       <y>70</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#00ff00;&quot;&gt;Moto&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>510</x>
+       <y>110</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffff00;&quot;&gt;Tricycle&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>30</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;Chercher&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="combochercherv">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>30</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QComboBox {
 	font: 75 8pt &quot;MS Shell Dlg 2&quot;;
 border: 3px solid gray;
 border-radius: 40pxt;
 background: white;
+}
+</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEditvehicule">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>30</y>
+      <width>161</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="chercherv">
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>30</y>
+      <width>62</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+ color: white;
+background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c, stop: 0.5 #66b, stop: 1 #77c);
+border-width: 1px;
+border-color: #339;
+border-style: solid;
+border-radius: 7;
+padding: 3px;
+font-size: 10px;
+padding-left: 5px;
+padding-right: 5px;
+min-width: 50px;
+max-width: 50px;
+min-height: 13px;
+max-height: 13px;
+}
+QPushButton:pressed
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
 }</string>
+    </property>
+    <property name="text">
+     <string>Chercher</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>340</y>
+      <width>281</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:600; color:#6b6bc0;&quot;&gt;STATISTIQUES&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>statistiquev</class>
+   <extends>QWidget</extends>
+   <header>statistiquev.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>Delivery-512.png</file>
+        <file>png-clipart-computer-icons-purchase-order-open-pack-icon-computer-icons-purchase-order.png</file>
+        <file>Click.mp3</file>
+    </qresource>
+</RCC>

@@ -2,6 +2,7 @@
 #define VEHICULE_H
 #include<QSqlQueryModel>
 #include<QString>
+#include<QtWidgets>
 class Vehicule
 {
 public:
@@ -23,6 +24,17 @@ public:
    bool modifier();
 QSqlQueryModel* afficher();
 bool supprimer(QString);
+QSqlQueryModel* chercher(int,QString);
+bool verif(QString);
+bool verifvidestring(QString);
+int statistique1();
+int statistique2();
+int statistique3();
+bool verifvide(QString);
+QSqlQueryModel* affiche_employer();
+bool verifierMatricule(QString);
+bool verifint(QString S);
+bool verifchassis(QString);
 private:
   QString matricule,numdechassis,marque,typev,typecarburant,datecirculation;
   int idemp;

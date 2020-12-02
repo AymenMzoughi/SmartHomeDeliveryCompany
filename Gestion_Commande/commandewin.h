@@ -28,6 +28,8 @@ private slots:
     void on_chercher_2_clicked();
   void on_imprimer_clicked();
 
+  void on_pushButton_clicked();
+
 private:
     Ui::Commandewin *ui;
     Commande C1;

@@ -1,14 +1,17 @@
 #include "commandewin.h"
 #include "ui_commandewin.h"
 #include"commande.h"
-#include<QPainter>
 #include<QPrinter>
+#include<QPainter>
 #include<QPdfWriter>
 #include <QMessageBox>
 #include<QVBoxLayout>
 #include<QtDebug>
 #include<QFileInfo>
 #include<QFileDialog>
+#include <QSettings>
+#include <QProcess>
+#include <QDebug>
 Commandewin::Commandewin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Commandewin)
@@ -20,12 +23,10 @@ Commandewin::Commandewin(QWidget *parent)
     ui->Mmodepaiment_2->addItem("cheque");
     ui->Mmodepaiment_2->addItem("especes");
     ui->Mmodepaiment_2->addItem("virement");
-    ui->tabcommande->setModel(C1.afficher());
+    //ui->tabcommande->setModel(C1.afficher());
     ui->chercher->addItem("modedepaiment");
     ui->chercher->addItem("idclient");
-    ui->chercher->addItem("Adresse");
     ui->chercher->addItem("numerocommande");
-
 
 }
 
@@ -52,59 +53,83 @@ void Commandewin::on_supprimer_clicked()
 
 void Commandewin::on_ajouter_clicked()
 {
-    QString modepaiment;
+    /*QString modepaiment;
     int num=ui->le_num->text().toInt();
+    QString numverif=ui->le_num->text();
     QString description=ui->description->text();
-    QString adresse=ui->adresse->text();
       int idclient=ui->idclient->text().toInt();
       QDate date= ui->datedecommande->date();
-        QString datedecommande= date.toString("dd/MM/yy");
+      QString datedecommande= date.toString("dd/MM/yy");
    modepaiment=ui->modepaiment->currentText();
     float montant=ui->montant->text().toFloat();
-    Commande C(num,description ,datedecommande,adresse,modepaiment,montant,idclient);
-
-
-    bool test=C.ajouter();
+    //Commande C(num,description ,datedecommande,modepaiment,montant,idclient);
      QMessageBox msgBox;
 
-     if(test)
-       {  msgBox.setText("Ajout avec succes.");
-         ui->tabcommande->setModel(C1.afficher());
-     }
-     else
+     if(C.verifvidestring(C.getdatecommande())==true&&C.verifvidestring(C.getdescription())==true&&C.verifvidestring(C.getmodepaiment())==true&&C.verifvidestring(numverif)==true&&C.veriffloat(C.getmontant())==true)
+       { bool test=C.ajouter();
+         if(test==true)
+         {msgBox.setText("Ajout avec succes.");
+             msgBox.exec();
+              ui->tabcommande->setModel(C1.afficher());
+              QString numS=ui->le_num->text();
+              QString Montant =ui->montant->text();
+              QPrinter printer;
+           printer.setOutputFormat(QPrinter::PdfFormat);
+           printer.setOutputFileName("D:/2eme/Projet/Smart_HomeDeliveryCompany_2A9/Gestion_Commande/pdf/bondecommande("+numS+").pdf");
+                      QPainter painter;
+                      if(! painter.begin(&printer))
+                      { qWarning("failed to open file");  }
+                             painter.setFont(QFont("Arial", 30));
+                              painter.setPen(Qt::black);
+                          painter.drawText(50,50," Bon de commande");
+                          painter.setPen(Qt::darkRed);
+                      painter.drawText(100,100," Smart Home : in a Flur ");
+                       painter.setPen(Qt::black);
+                       painter.drawText(50,300,"numero de commande : "+numS);
+                       painter.drawText(50,400,"Description  : "+description);
+                       painter.drawText(50,500," Date de commande   : "+datedecommande);
+                         painter.drawText(50,600," mode de paiement "+modepaiment);
+                          painter.drawText(50,700,"Montant : "+Montant);
+                      painter.end();}
+                      else {
+                          msgBox.setText("Echec d'ajout");
+                           msgBox.exec();
+                      }
+
+         }
+        else
         { msgBox.setText("Echec d'ajout");
-         msgBox.exec();
-    }
+         msgBox.exec();}
 
-
-}
+*/
+     }
 
 void Commandewin::on_Modifier_clicked()
 {
 
-    QString modepaiment,choix;
+  /*  QString modepaiment,choix;
     int num=ui->Mnum->text().toInt();
     QString description=ui->Mdescription->text();
-    QString adresse=ui->Madresse->text();
       int idclient=ui->Midclient->text().toInt();
       QDate date= ui->Mdate->date();
         QString datedecommande= date.toString("dd/MM/yy");
-      choix.sprintf("%d",ui->Mmodepaiment_2->currentIndex());
    modepaiment=ui->Mmodepaiment_2->currentText();
     float montant=ui->MMontant->text().toFloat();
-    Commande C1 (num,description ,datedecommande,adresse,modepaiment,montant,idclient);
-     bool test=C1.modifier();
-         QMessageBox msgBox;
-         if(test)
-            { msgBox.setText("Modification avec succes");
+     QMessageBox msgBox;
+    Commande C (num,description ,datedecommande,modepaiment,montant,idclient);
+
+
+if(C.verifvidestring(C.getdatecommande())==true&&C.verifvidestring(C.getdescription())==true&&C.verifvidestring(C.getmodepaiment())==true&&C.veriffloat(C.getmontant())==true)
+         {if(test)
+         msgBox.setText("Modification avec succes");
          ui->tabcommande->setModel(C1.afficher());
 
 
          }
          else
             { msgBox.setText(" cette commande n'exite pas ");
-             msgBox.exec();}
-
+                msgBox.exec();}
+*/
 }
 
 
@@ -118,34 +143,17 @@ void Commandewin::on_chercher_2_clicked()
 }
 
 void Commandewin::on_imprimer_clicked()
-{QString nomFichier = QFileDialog ::getSaveFileName(0, QString::fromUtf8("Générer PDF"), QCoreApplication::applicationDirPath(), "*.pdf");
+{
 
-    if (!nomFichier.isEmpty())
-    {
-        if (QFileInfo(nomFichier).suffix().isEmpty())
-            nomFichier.append(".pdf");
-        QPrinter printer(QPrinter::HighResolution);
-        printer.setOutputFormat(QPrinter::PdfFormat);
-        printer.setOutputFileName(nomFichier);
-        printer.setOrientation(QPrinter::Portrait);
-        printer.setPaperSize(QPrinter::A4);
-        printer.setPageSize(QPrinter::A4);
-        printer.setPageMargins(15,15,15,15,QPrinter::Millimeter);
-        printer.setPrinterName("desierd printer name");
-        qDebug() << "Page px :" << printer.pageRect() << printer.paperRect();
-        qDebug() << "Page mm :" << printer.pageRect(QPrinter::Millimeter) << printer.paperRect(QPrinter::Millimeter);
-        qreal left, top, right, bottom;
-        printer.getPageMargins(&left, &top, &right, &bottom, QPrinter::DevicePixel);
-        qDebug() << "Marges px :" << left << top << right << bottom;
-        printer.getPageMargins(&left, &top, &right, &bottom, QPrinter::Millimeter);
-        qDebug() << "Marges mm :" << left << top << right << bottom;
-          QPainter painter(&printer);
-            painter.drawText(0, printer.pageRect().y()*2, QString::fromUtf8("Ligne 1"));
-            printer.newPage();
-            painter.drawText(0, printer.pageRect().y()*3, QString::fromUtf8("Ligne 2"));
 
 
     }
 
 
+void Commandewin::on_pushButton_clicked()
+{
+
+
 }
+
+

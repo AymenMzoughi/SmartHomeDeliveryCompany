@@ -1,4 +1,4 @@
-QT       += core gui sql
+QT       += core gui sql charts multimedia
 QT       += printsupport
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,27 +10,34 @@ CONFIG += c++11
 
 SOURCES += \
     commande.cpp \
+    commande_colis.cpp \
     connexion.cpp \
+    gestioncommandes.cpp \
     main.cpp \
     commandewin.cpp \
-    mainwin.cpp \
+    statistiquev.cpp \
     vehicule.cpp \
     vehiculewin.cpp
 
 HEADERS += \
     commande.h \
+    commande_colis.h \
     commandewin.h \
     connexion.h \
-    mainwin.h \
+    gestioncommandes.h \
+    statistiquev.h \
     vehicule.h \
     vehiculewin.h
 
 FORMS += \
     commandewin.ui \
-    mainwin.ui \
+    gestioncommandes.ui \
     vehiculewin.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    ressources.qrc
