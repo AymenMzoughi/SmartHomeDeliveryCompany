@@ -5,6 +5,7 @@
 #include"commande.h"
 #include"vehicule.h"
 #include"commande_colis.h"
+#include"arduino.h"
 namespace Ui {
 class Gestioncommandes;
 }
@@ -43,6 +44,10 @@ private slots:
     void on_Affichertout_clicked();
 
     void on_Affichertout_2_clicked();
+
+    void on_tabcommande_activated(const QModelIndex &index);
+
+    void on_tabvehicule_activated(const QModelIndex &index);
 
 private:
     Ui::Gestioncommandes *ui;

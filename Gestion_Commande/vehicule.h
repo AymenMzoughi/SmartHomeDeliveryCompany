@@ -20,6 +20,8 @@ public:
     void setmarque(QString);
     void settypecarburant(QString);
     void setdatecirculation(QString);
+    void settypev(QString tv);
+    void setidemp(int emp);
    bool ajouter();
    bool modifier();
 QSqlQueryModel* afficher();
@@ -35,6 +37,7 @@ QSqlQueryModel* affiche_employer();
 bool verifierMatricule(QString);
 bool verifint(QString S);
 bool verifchassis(QString);
+Vehicule*readvehicule(QString);
 private:
   QString matricule,numdechassis,marque,typev,typecarburant,datecirculation;
   int idemp;

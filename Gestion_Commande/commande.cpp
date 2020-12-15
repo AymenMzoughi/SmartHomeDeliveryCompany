@@ -223,3 +223,22 @@ QSqlQueryModel * Commande::afficher_idemp()
      return model ;
 
 }
+Commande* Commande::readcommande( QString val)
+{
+ QSqlQuery query;
+    query.prepare("Select * FROM COMMANDE where NUMERO='"+val+"'");
+        if(query.exec())
+        {     while(query.next())
+            {  qDebug()<<"test"<<val;
+               setnum(query.value(0).toInt());
+              setdescription(query.value(1).toString());
+             setdatecommande(query.value(2).toString());
+             setmodepaiment(query.value(3).toString());
+              setmontant(query.value(4).toFloat());
+             setidclient(query.value(5).toInt());
+             setidemp(query.value(6).toString());
+
+            }
+        }
+     return this;
+}

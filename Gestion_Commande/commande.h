@@ -34,6 +34,7 @@ public:
     bool verifierid(int);
     QSqlQueryModel *afficher_idclient();
     QSqlQueryModel *afficher_idemp();
+    Commande* readcommande( QString val);
 private :
 int num;
 int idclient;

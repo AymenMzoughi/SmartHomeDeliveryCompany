@@ -15,60 +15,46 @@
 #include <QProcess>
 #include <QDebug>
 #include <QtPrintSupport>
+#include<QSqlQuery>
 #include<QMediaPlayer>
 Gestioncommandes::Gestioncommandes(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Gestioncommandes)
 {   ui->setupUi(this);
      ui->le_num->setValidator(new QIntValidator(0, 99999, this));
-     ui->Mnum->setValidator(new QIntValidator(0, 99999, this));
-      ui->numsupp->setValidator(new QIntValidator(0,99999, this));
 //COMBOBOX:commandes
     ui->modepaiment->addItem("cheque");
     ui->modepaiment->addItem("especes");
     ui->modepaiment->addItem("virement");
-    ui->Mmodepaiment_2->addItem("cheque");
-    ui->Mmodepaiment_2->addItem("especes");
-    ui->Mmodepaiment_2->addItem("virement");
     ui->chercher->addItem("modedepaiment");
     ui->chercher->addItem("idclient");
     ui->chercher->addItem("numerocommande");
     ui->comboBoxidclient->setModel(C1.afficher_idclient());
-    ui->comboBoxMidclient->setModel(C1.afficher_idclient());
     ui->tabcommande->setModel(C1.afficher());
     ui->idemp->setModel(C1.afficher_idemp());
-    ui->idemp_2->setModel(C1.afficher_idemp());
   //COMBOBOX:vehicules
   ui->typecarburant->addItem("gazole");
   ui->typecarburant->addItem("Essence");
   ui->typev->addItem("camion");
   ui->typev->addItem("moto");
   ui->typev->addItem("tricycle");
-  ui->typecarburant_2->addItem("gazole");
-  ui->typecarburant_2->addItem("Essence");
-  ui->typev_2->addItem("camion");
-  ui->typev_2->addItem("moto");
-  ui->typev_2->addItem("tricycle");
   ui->marquev->addItem("Fiat");
   ui->marquev->addItem("Toyota ");
   ui->marquev->addItem("Peugeot");
   ui->marquev->addItem("Citroen");
   ui->marquev->addItem("Renault");
-  ui->marquev_2->addItem("Fiat");
-  ui->marquev_2->addItem("Toyota ");
-  ui->marquev_2->addItem("Peugeot");
-  ui->marquev_2->addItem("Citroen");
-  ui->marquev_2->addItem("Renault");
-  ui->marquev_2->addItem("Vms");
+  ui->etat->addItem("en cours");
+  ui->etat->addItem("annulee");
+  ui->etat->addItem("en retard");
   //COMBOBOX:employe
   ui->comboBoxemp->setModel(V1.affiche_employer());
-  ui->comboBoxempM->setModel(V1.affiche_employer());
   //Chercher Vehicule:combobox
   ui->combochercherv->addItem("Matricule");
   ui->combochercherv->addItem("Marque");
   ui->combochercherv->addItem("TypeV");
   ui->combochercherv->addItem("typeCarburant");
   ui->tabvehicule->setModel(V1.afficher());
+
   //COMBOBOX:affectation
   ui->affectercolis->setModel(CC.afficher_idcolis());
    ui->affecternumcommande->setModel(CC.afficher_idcommande());
@@ -106,6 +92,9 @@ void Gestioncommandes::on_ajouterCommandes_clicked()
          {msgBox.setText("Ajout avec succes.");
             ui->tabcommande->setModel(C1.afficher());
             ui->affecternumcommande->setModel(CC.afficher_idcommande());
+            ui->le_num->setText("");
+            ui->description->setText("");
+            ui->montant->setText("");
               msgBox.exec();}
                       else {
                           msgBox.setText("Echec d'ajout");
@@ -123,16 +112,21 @@ msgBox.exec();
 void Gestioncommandes::on_supprimerCommandes_clicked()
 {
       QMessageBox msgBox;
-      int numtest=ui->numsupp->text().toUInt();
-      QString numstring=ui->numsupp->text();
+      int numtest=ui->le_num->text().toUInt();
+      QString numstring=ui->le_num->text();
       Commande C;
       C.setnum(numtest);
      bool test1=C.verifierid(C.getnum());
-     if(test1==true&&C.verifvidestring(ui->numsupp->text()))
+     if(test1==true&&C.verifvidestring(ui->le_num->text()))
        { C.supprimer(C.getnum());
          msgBox.setText("Suppression avec succes.");
 
              ui->tabcommande->setModel(C1.afficher());
+             ui->affecternumcommande->setModel(CC.afficher_idcommande());
+             ui->le_num->setText("");
+             ui->description->setText("");
+             ui->montant->setText("");
+
             CC.updateetat(numtest);
 
          }
@@ -144,17 +138,18 @@ void Gestioncommandes::on_supprimerCommandes_clicked()
 
 
 void Gestioncommandes::on_ModifierCommandes_clicked()
-{
-       QMessageBox msgBox;
-    QString modepaiment,choix;
-    int num=ui->Mnum->text().toInt();
-    QString description=ui->Mdescription->text();
+{QMessageBox msgBox;
+    QString modepaiment;
+    int num=ui->le_num->text().toInt();
+    QString numstring=ui->le_num->text();
+    QString numverif=ui->le_num->text();
+    QString description=ui->description->text();
       int idclient=ui->comboBoxidclient->currentText().toInt();
-      QDate date= ui->Mdate->date();
-     QString datedecommande=date.toString("dd/MM/yy");
-      modepaiment=ui->Mmodepaiment_2->currentText();
-    float montant=ui->MMontant->text().toFloat();
-    QString idemp=ui->idemp_2->currentText();
+      QDate date= ui->datedecommande->date();
+      QString datedecommande= date.toString("dd/MM/yy");
+      modepaiment=ui->modepaiment->currentText();
+    float montant=ui->montant->text().toFloat();
+    QString idemp=ui->idemp->currentText();
     Commande C(num,description ,datedecommande,modepaiment,montant,idclient,idemp);
 
 if(C.verifvidestring(C.getdatecommande())==true&&C.verifvidestring(C.getdescription())==true&&C.verifvidestring(C.getmodepaiment())==true&&C.veriffloat(C.getmontant())==true&&C.verifierid(num))
@@ -174,11 +169,11 @@ void Gestioncommandes::on_chercher_2Commandes_clicked()
     choix=ui->chercher->currentIndex();
     QString linechercher=ui->lineEditchercher->text();
     ui->tabcommande->setModel(C1.chercher(choix,linechercher));
+
 }
 //TABLE:Vehicule
 void Gestioncommandes::on_AjouterVehicule_clicked()
 {
-    QString choix1,choix2;
       int idemp=ui->comboBoxemp->currentText().toInt();
      QString idemps=ui->comboBoxemp->currentText();
     QString  matricule=ui->Matricule->text();
@@ -196,6 +191,8 @@ void Gestioncommandes::on_AjouterVehicule_clicked()
          {msgBox.setText("Ajout avec succes.");
              msgBox.setText("Ajout avec succes.");
            ui->tabvehicule->setModel(V1.afficher());
+           ui->Matricule->setText("");
+           ui->numerochassis->setText("");
               msgBox.exec();}
                       else {
                           msgBox.setText("Echec d'ajout");
@@ -209,15 +206,15 @@ void Gestioncommandes::on_AjouterVehicule_clicked()
 
 void Gestioncommandes::on_ModifierVehicule_clicked()
 {
-    QString choix1,choix2;
-      int idemp=ui->comboBoxempM->currentText().toInt();
-    QString  matricule=ui->Matricule_2->text();
-    QString numdechassis=ui->numerochassis_2->text();
-    QString marque=ui->marquev_2->currentText();
-    QDate datec= ui->datecirculation_2->date();
-    QString datecirculation=datec.toString("dd/MM/yy");
-   QString typecarburant=ui->typecarburant_2->currentText();
-   QString typev=ui->typev_2->currentText();
+    int idemp=ui->comboBoxemp->currentText().toInt();
+   QString idemps=ui->comboBoxemp->currentText();
+  QString  matricule=ui->Matricule->text();
+  QString numdechassis=ui->numerochassis->text();
+  QString marque=ui->marquev->currentText();
+  QDate datec= ui->datecirculation->date();
+  QString datecirculation=datec.toString("dd/MM/yy");
+ QString typecarburant=ui->typecarburant->currentText();
+  QString typev=ui->typev->currentText();
 Vehicule V(matricule,numdechassis,typecarburant,typev,datecirculation,marque,idemp);
      QMessageBox msgBox;
 bool test=V.verifierMatricule(matricule);
@@ -225,6 +222,8 @@ bool test=V.verifierMatricule(matricule);
        { V.modifier();
          msgBox.setText("modificaton avec succes.");
            ui->tabvehicule->setModel(V1.afficher());
+           ui->Matricule->setText("");
+         ui->numerochassis->setText("");
      }
      else
         { msgBox.setText("vehicule n'exite pas ");}
@@ -235,7 +234,7 @@ bool test=V.verifierMatricule(matricule);
 void Gestioncommandes::on_supprimerVehicule_clicked()
 {
     Vehicule V;
-       V.setmatricule(ui->supprimer->text());
+       V.setmatricule(ui->Matricule->text());
 
           QMessageBox msgBox;
           bool test=V.verifierMatricule(V.getmatricule());
@@ -243,10 +242,12 @@ void Gestioncommandes::on_supprimerVehicule_clicked()
              {V.supprimer(V.getmatricule());
                msgBox.setText("Suppression avec succes.");
                ui->tabvehicule->setModel(V1.afficher());
+               ui->Matricule->setText("");
+             ui->numerochassis->setText("");
 
           }
           else
-             {msgBox.setText("Vehicule n'existe pas");
+             {msgBox.setText("Echec de modification");
                }
 
 msgBox.exec();
@@ -266,7 +267,7 @@ void Gestioncommandes::on_affecter_clicked()
 { QMessageBox msgBox;
    int commande=ui->affecternumcommande->currentText().toInt();
    int colis=ui->affectercolis->currentText().toInt();
-   QString etat=ui->Etat->text();
+   QString etat=ui->etat->currentText();
            Commande_colis CC(commande,colis,etat);
 
   bool  test1=CC.verifvidestring(etat);
@@ -281,7 +282,8 @@ void Gestioncommandes::on_affecter_clicked()
            bool test2=CC.verifiercommandeaff(commande);
            if(test2==false&&CC.verifiercolis(colis)==0)
           {CC.affecteruncolis();
-           msgBox.setText("Affectation avec succes.");}
+
+             msgBox.setText("Affectation avec succes.");}
 
           else if(test2==false&&(refclient==refclient1))
           {CC.affecteruncolis();
@@ -354,4 +356,47 @@ void Gestioncommandes::on_Affichertout_clicked()
 void Gestioncommandes::on_Affichertout_2_clicked()
 {
     ui->tabvehicule->setModel(V1.afficher());
+}
+
+void Gestioncommandes::on_tabcommande_activated(const QModelIndex &index)
+{
+    QString val=ui->tabcommande->model()->data(index).toString();
+    Commande *CA;
+    CA=C1.readcommande(val);
+    int numcommande=CA->getnum();
+     float montant=CA->getmontant();
+     int idclient=CA->getidclient();
+      QString num_string=QString::number(numcommande);
+      QString montant_string=QString::number(montant,'f',4);
+      QString numclient_string=QString::number(idclient);
+                ui->le_num->setText(num_string);
+             ui->description->setText(CA->getdescription());
+             QDate Datec=QDate::fromString((CA->getdatecommande()),("dd/MM/yy"));
+               ui->datedecommande->setDate(Datec);
+               ui->modepaiment->setCurrentText(CA->getmodepaiment());
+               ui->montant->setText(montant_string);
+               ui->idemp->setCurrentText(CA->getidemp());
+               ui->comboBoxemp->setCurrentText(numclient_string);
+
+
+}
+
+void Gestioncommandes::on_tabvehicule_activated(const QModelIndex &index)
+{
+   QString val1=ui->tabvehicule->model()->data(index).toString();
+Vehicule *VA;
+   VA=V1.readvehicule(val1);
+        int idempp=VA->getidemp();
+ QString numcemp_string=QString::number(idempp);
+                ui->Matricule->setText(VA->getmatricule());
+              ui->numerochassis->setText(VA->getnumdechassis());
+              ui->marquev->setCurrentText(VA->getmarque());
+              ui->typev->setCurrentText(VA->gettypev());
+              ui->typecarburant->setCurrentText(VA->gettypecarburant());
+              QDate Datec=QDate::fromString((VA->getdatecirculation()),("dd/MM/yy"));
+             ui->datecirculation->setDate(Datec);
+             ui->idemp->setCurrentText(numcemp_string);
+
+
+
 }

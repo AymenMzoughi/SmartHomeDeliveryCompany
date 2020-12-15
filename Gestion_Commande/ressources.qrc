@@ -4,4 +4,7 @@
         <file>png-clipart-computer-icons-purchase-order-open-pack-icon-computer-icons-purchase-order.png</file>
         <file>Click.mp3</file>
     </qresource>
+    <qresource prefix="/">
+        <file>Ajouter.png</file>
+    </qresource>
 </RCC>

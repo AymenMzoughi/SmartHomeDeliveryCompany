@@ -3,13 +3,15 @@
 #include <QApplication>
 #include <QMessageBox>
 #include <QApplication>
-
+#include"commandewin.h"
+#include"parking.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
      Connexion c;
     bool test=c.createconnect();
-    Gestioncommandes w;
+ Gestioncommandes w;
+
     if(test)
     {w.show();
         QMessageBox::information(nullptr, QObject::tr("database is open"),

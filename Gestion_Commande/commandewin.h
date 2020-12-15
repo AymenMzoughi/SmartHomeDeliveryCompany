@@ -30,6 +30,8 @@ private slots:
 
   void on_pushButton_clicked();
 
+  void on_tabcommande_activated(const QModelIndex &index);
+
 private:
     Ui::Commandewin *ui;
     Commande C1;

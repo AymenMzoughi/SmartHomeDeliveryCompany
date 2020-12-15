@@ -71,9 +71,18 @@ void Vehicule::settypecarburant(QString typec)
 {
     typecarburant=typec;
 }
+void Vehicule ::settypev(QString tv)
+{
+
+   typev=tv;
+}
 void Vehicule::setdatecirculation(QString d)
 {
     datecirculation=d;
+}
+void Vehicule::setidemp(int emp)
+{
+    idemp=emp;
 }
 bool Vehicule:: ajouter()
 {
@@ -237,4 +246,23 @@ bool Vehicule ::verifvide(QString S)
 
 return test;
  }
+Vehicule* Vehicule:: readvehicule(QString val)
+{
+    QSqlQuery query;
+       query.prepare("Select * FROM vehicule where matricule='"+val+"'");
+           if(query.exec())
+           {     while(query.next())
+               {  qDebug()<<"test"<<val;
+                  setmatricule(query.value(0).toString());
+                 setnumdechassis(query.value(1).toString());
+                setmarque(query.value(2).toString());
+               settypev(query.value(3).toString());
+                settypecarburant(query.value(4).toString());
+                setdatecirculation(query.value(5).toString());
+                setidemp(query.value(6).toInt());
 
+               }
+           }
+        return this;
+
+}

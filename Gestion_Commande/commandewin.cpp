@@ -12,6 +12,7 @@
 #include <QSettings>
 #include <QProcess>
 #include <QDebug>
+#include<QSqlQuery>
 Commandewin::Commandewin(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Commandewin)
@@ -157,3 +158,21 @@ void Commandewin::on_pushButton_clicked()
 }
 
 
+
+void Commandewin::on_tabcommande_activated(const QModelIndex &index)
+{
+
+    QString val=ui->tabcommande->model()->data(index).toString();
+
+
+    QSqlQuery  query;
+
+            query.prepare("Select * FROM COMMANDE where NUMERO'"+val+"'");
+
+        if(query.exec())
+        {     while(query.next())
+            {
+                ui->le_num->setText(query.value(0).toString());
+            }
+        }
+}
