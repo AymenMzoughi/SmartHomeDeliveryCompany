@@ -7,21 +7,21 @@ class Vehicule
 {
 public:
     Vehicule();
-    Vehicule(QString,QString,QString,QString,QString,QString,int);
+    Vehicule(QString,QString,QString,QString,QString,QString,QString);
     QString getmatricule();
     QString getnumdechassis();
     QString getmarque();
     QString gettypev();
     QString gettypecarburant();
     QString getdatecirculation();
-    int getidemp();
+   QString getidemp();
     void setmatricule(QString);
     void setnumdechassis(QString);
     void setmarque(QString);
     void settypecarburant(QString);
     void setdatecirculation(QString);
     void settypev(QString tv);
-    void setidemp(int emp);
+    void setidemp(QString emp);
    bool ajouter();
    bool modifier();
 QSqlQueryModel* afficher();
@@ -39,8 +39,8 @@ bool verifint(QString S);
 bool verifchassis(QString);
 Vehicule*readvehicule(QString);
 private:
-  QString matricule,numdechassis,marque,typev,typecarburant,datecirculation;
-  int idemp;
+  QString matricule,numdechassis,marque,typev,typecarburant,datecirculation,idemp;
+
 
 };
 

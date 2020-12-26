@@ -6,10 +6,10 @@
 Vehicule::Vehicule()
 {
   matricule=numdechassis=marque=typecarburant=typev=typecarburant=datecirculation="";
-  idemp=0;
+
 }
 
-Vehicule::Vehicule(QString matricule,QString numdechassis,QString typec,QString typev,QString datecirculation,QString marque,int idemp)
+Vehicule::Vehicule(QString matricule,QString numdechassis,QString typec,QString typev,QString datecirculation,QString marque,QString idemp)
 {
 
 this->matricule=matricule;
@@ -51,7 +51,7 @@ QString Vehicule ::getdatecirculation()
 {
     return datecirculation;
 }
-int Vehicule:: getidemp()
+QString Vehicule:: getidemp()
 {
     return idemp;
 }
@@ -80,23 +80,22 @@ void Vehicule::setdatecirculation(QString d)
 {
     datecirculation=d;
 }
-void Vehicule::setidemp(int emp)
+void Vehicule::setidemp(QString emp)
 {
     idemp=emp;
 }
 bool Vehicule:: ajouter()
 {
     QSqlQuery query;
-    QString Idemp_string=QString::number(idemp);
     QDate detecirculation_d =QDate::fromString(datecirculation,"dd/MM/yy");
-          query.prepare("INSERT INTO vehicule(matricule,numdechassis,marque,typev,typecarburant,datecirculation,idemp) "
+          query.prepare("INSERT INTO vehicule(matricule,numdechassis,marque,typev,typecarburant,datecirculation,id_emp) "
                         "VALUES (:matricule,:numdechassis,:marque,:typev,:typecarburant,:datecirculation,:idemp)");
           query.bindValue(":matricule",matricule);
           query.bindValue(":numdechassis",numdechassis);
           query.bindValue(":marque",marque);
              query.bindValue(":typev",typev);
           query.bindValue(":typecarburant",typecarburant);
-          query.bindValue(":idemp",Idemp_string);
+          query.bindValue(":idemp",idemp);
           query.bindValue(":datecirculation",detecirculation_d);
           return query.exec();
 
@@ -104,15 +103,14 @@ bool Vehicule:: ajouter()
 bool Vehicule ::modifier()
 {
     QSqlQuery query;
-    QString Idemp_string=QString::number(idemp);
     QDate detecirculation_d =QDate::fromString(datecirculation,"dd/MM/yy");
- query.prepare("UPDATE vehicule SET numdechassis=:numdechassis,marque=:marque,typev=:typev,typecarburant=:typecarburant,datecirculation=:datecirculation,idemp=:idemp WHERE matricule=:matricule");
+ query.prepare("UPDATE vehicule SET numdechassis=:numdechassis,marque=:marque,typev=:typev,typecarburant=:typecarburant,datecirculation=:datecirculation,id_emp=:idemp WHERE matricule=:matricule");
  query.bindValue(":matricule",matricule);
  query.bindValue(":numdechassis",numdechassis);
  query.bindValue(":marque",marque);
  query.bindValue(":typev",typev);
  query.bindValue(":typecarburant",typecarburant);
- query.bindValue(":idemp",Idemp_string);
+ query.bindValue(":idemp",idemp);
  query.bindValue(":datecirculation",detecirculation_d);
    return query.exec();
 }
@@ -259,7 +257,7 @@ Vehicule* Vehicule:: readvehicule(QString val)
                settypev(query.value(3).toString());
                 settypecarburant(query.value(4).toString());
                 setdatecirculation(query.value(5).toString());
-                setidemp(query.value(6).toInt());
+                setidemp(query.value(6).toString());
 
                }
            }

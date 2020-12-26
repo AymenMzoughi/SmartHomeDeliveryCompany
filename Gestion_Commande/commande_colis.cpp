@@ -2,6 +2,7 @@
 #include<QSqlQuery>
 #include<QtDebug>
 #include<QObject>
+#include<QDebug>
 Commande_colis::Commande_colis()
 {
 
@@ -87,7 +88,7 @@ int Commande_colis::verifcommandeidclient(int num)
    return idclient;
 }
 int Commande_colis::verifiercolis(int colis)
-{QSqlQuery  query;
+{  QSqlQuery  query;
       int rcolis=0;
           QString num_string=QString::number(colis);
             query.prepare("Select numero_c FROM COMMANDE_Colis where code_colis=:code_colis ");
@@ -100,4 +101,14 @@ int Commande_colis::verifiercolis(int colis)
 
        return rcolis;
 
+}
+QSqlQueryModel * Commande_colis::afficher_tab(int numcommande)
+{  QSqlQuery  query;
+  QSqlQueryModel * model =new QSqlQueryModel();
+   QString num_string=QString::number(numcommande);
+   qDebug()<<num_string;
+ query.prepare(" SELECT * from commande C  right join commande_colis CC ON C.numero=CC.numero_c  where numero='"+num_string+" '");
+        query.exec();
+        model->setQuery(query);
+  return model;
 }

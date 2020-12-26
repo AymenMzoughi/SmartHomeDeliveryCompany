@@ -49,6 +49,8 @@ private slots:
 
     void on_tabvehicule_activated(const QModelIndex &index);
 
+    void on_afficheraffecter_clicked();
+
 private:
     Ui::Gestioncommandes *ui;
     Commande C1;

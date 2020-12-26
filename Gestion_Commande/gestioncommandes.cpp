@@ -174,7 +174,6 @@ void Gestioncommandes::on_chercher_2Commandes_clicked()
 //TABLE:Vehicule
 void Gestioncommandes::on_AjouterVehicule_clicked()
 {
-      int idemp=ui->comboBoxemp->currentText().toInt();
      QString idemps=ui->comboBoxemp->currentText();
     QString  matricule=ui->Matricule->text();
     QString numdechassis=ui->numerochassis->text();
@@ -183,7 +182,7 @@ void Gestioncommandes::on_AjouterVehicule_clicked()
     QString datecirculation=datec.toString("dd/MM/yy");
    QString typecarburant=ui->typecarburant->currentText();
     QString typev=ui->typev->currentText();
-   Vehicule V(matricule,numdechassis,typecarburant,typev,datecirculation,marque,idemp);
+   Vehicule V(matricule,numdechassis,typecarburant,typev,datecirculation,marque,idemps);
      QMessageBox msgBox;
      if(V.verifvide(matricule)==true&&V.verifvide(numdechassis)==true&&V.verifvide(idemps)==true&&V.verifint(matricule)==true)
       {     bool test=V.ajouter();
@@ -206,8 +205,7 @@ void Gestioncommandes::on_AjouterVehicule_clicked()
 
 void Gestioncommandes::on_ModifierVehicule_clicked()
 {
-    int idemp=ui->comboBoxemp->currentText().toInt();
-   QString idemps=ui->comboBoxemp->currentText();
+   QString idemp=ui->comboBoxemp->currentText();
   QString  matricule=ui->Matricule->text();
   QString numdechassis=ui->numerochassis->text();
   QString marque=ui->marquev->currentText();
@@ -268,33 +266,20 @@ void Gestioncommandes::on_affecter_clicked()
    int commande=ui->affecternumcommande->currentText().toInt();
    int colis=ui->affectercolis->currentText().toInt();
    QString etat=ui->etat->currentText();
-           Commande_colis CC(commande,colis,etat);
-
-  bool  test1=CC.verifvidestring(etat);
-
-  int commande1=CC.verifiercolis(colis);
-
-  int refclient1=CC.verifcommandeidclient(commande1);
-  qDebug("test");
-  int refclient=CC.verifcommandeidclient(commande);
-     if(test1)
-        {
-           bool test2=CC.verifiercommandeaff(commande);
+   Commande_colis CC(commande,colis,etat);
+  int commande1=CC.verifiercolis(colis);//verifier est ce que le colis est affecte a une commande
+  int refclient1=CC.verifcommandeidclient(commande1);// si oui return id de ce client
+  int refclient=CC.verifcommandeidclient(commande); // return id de client de commande a affecter
+  bool test2=CC.verifiercommandeaff(commande);  //si cette commande est deja affecte ou pas
            if(test2==false&&CC.verifiercolis(colis)==0)
           {CC.affecteruncolis();
-
              msgBox.setText("Affectation avec succes.");}
-
           else if(test2==false&&(refclient==refclient1))
           {CC.affecteruncolis();
            msgBox.setText("Affectation avec succes.");}
            else
            { msgBox.setText("Echec de Affectation ");
            }
-     }
-     else
-        { msgBox.setText("Echec de Affectation 2: remplir etat");
-        }
      msgBox.exec();
 }
 //TABLE:Commande_colis
@@ -386,8 +371,7 @@ void Gestioncommandes::on_tabvehicule_activated(const QModelIndex &index)
    QString val1=ui->tabvehicule->model()->data(index).toString();
 Vehicule *VA;
    VA=V1.readvehicule(val1);
-        int idempp=VA->getidemp();
- QString numcemp_string=QString::number(idempp);
+       QString idempp=VA->getidemp();
                 ui->Matricule->setText(VA->getmatricule());
               ui->numerochassis->setText(VA->getnumdechassis());
               ui->marquev->setCurrentText(VA->getmarque());
@@ -395,8 +379,16 @@ Vehicule *VA;
               ui->typecarburant->setCurrentText(VA->gettypecarburant());
               QDate Datec=QDate::fromString((VA->getdatecirculation()),("dd/MM/yy"));
              ui->datecirculation->setDate(Datec);
-             ui->idemp->setCurrentText(numcemp_string);
+             ui->idemp->setCurrentText(idempp);
 
 
+
+}
+
+void Gestioncommandes::on_afficheraffecter_clicked()
+{
+
+    int commande=ui->affecternumcommande->currentText().toInt();
+    ui->tabcommande->setModel(CC.afficher_tab(commande));
 
 }

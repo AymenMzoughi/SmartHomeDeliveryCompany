@@ -49,8 +49,7 @@ Vehiculewin::~Vehiculewin()
 void Vehiculewin::on_Ajouter_clicked()
 {
     QString choix1,choix2;
-      int idemp=ui->idemp->text().toInt();
-     QString idemps=ui->idemp->text();
+      QString idemp=ui->idemp->text();
     QString  matricule=ui->Matricule->text();
     QString numdechassis=ui->numerochassis->text();
     QString marque=ui->marquev->currentText();
@@ -60,7 +59,7 @@ void Vehiculewin::on_Ajouter_clicked()
     QString typev=ui->typev->currentText();
 Vehicule V(matricule,numdechassis,typecarburant,typev,datecirculation,marque,idemp);
      QMessageBox msgBox;
-     if(V.verifvide(matricule)==true&&V.verifvide(numdechassis)==true&&V.verifvide(idemps)==true)
+     if(V.verifvide(matricule)==true&&V.verifvide(numdechassis)==true&&V.verifvide(idemp)==true)
       { bool test=V.ajouter();
        if(test)
        {  msgBox.setText("Ajout avec succes.");
@@ -92,7 +91,7 @@ void Vehiculewin::on_supprimer_2_clicked()
 void Vehiculewin::on_Modifier_clicked()
 {
     QString choix1,choix2;
-      int idemp=ui->idemp_2->text().toInt();
+     QString idemp=ui->idemp_2->text();
     QString  matricule=ui->Matricule_2->text();
     QString numdechassis=ui->numerochassis_2->text();
     QString marque=ui->marquev_2->currentText();

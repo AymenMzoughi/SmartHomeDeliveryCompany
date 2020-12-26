@@ -10,6 +10,7 @@ public:
     Commande_colis(int,int,QString);
      QSqlQueryModel *afficher_idcommande();
      QSqlQueryModel *afficher_idcolis();
+     QSqlQueryModel *afficher_tab(int);
      bool affecteruncolis();
      bool verifvidestring(QString S);
      bool updateetat(int);
