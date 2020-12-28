@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>img/Affecter.png</file>
+        <file>img/Afficher.png</file>
+        <file>img/Ajouter.png</file>
+        <file>img/Arreter.png</file>
+        <file>img/Boutons.png</file>
+        <file>img/Carte Fid.png</file>
+        <file>img/Clients.png</file>
+        <file>img/Commandes.png</file>
+        <file>img/Commencer.png</file>
+        <file>img/Congé.png</file>
+        <file>img/Emplyé.png</file>
+        <file>img/envoyermail.png</file>
+        <file>img/Imprimer.png</file>
+        <file>img/LD.png</file>
+        <file>img/Modifier.png</file>
+        <file>img/Rechercher.png</file>
+        <file>img/Supprimer.png</file>
+        <file>img/Trier.png</file>
+        <file>img/Vehicules.png</file>
+    </qresource>
+</RCC>

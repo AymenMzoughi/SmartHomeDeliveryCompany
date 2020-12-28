@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.1, 2020-12-24T15:31:12. -->
+<!-- Written by QtCreator 4.13.1, 2020-12-28T16:18:19. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -325,9 +325,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Devlobby2</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/2eme/Projet/projet final/Smart_HomeDeliveryCompany_2A9/code intégration/Devlobby.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/2eme/Projet/projet final/Smart_HomeDeliveryCompany_2A9/code intégration/Devlobby.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/Devlobby.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/Devlobby.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

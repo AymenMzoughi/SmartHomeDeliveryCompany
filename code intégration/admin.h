@@ -2,7 +2,6 @@
 #define ADMIN_H
 #include<QString>
 #include<QSqlQueryModel>
-
 #include <QDebug>
 #include <QtDebug>
 #include "mainwindow.h"
