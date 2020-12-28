@@ -176,3 +176,52 @@ QSqlQuery query;
     return model;
 
 }
+
+Employe* Employe::reademploye (QString val)
+{
+ QSqlQuery query;
+    query.prepare("Select * FROM EMPLOYE where IDEMP='"+val+"'");
+        if(query.exec())
+        {     while(query.next())
+            {  qDebug()<<"test"<<val;
+               setidemp(query.value(0).toInt());
+              setnom(query.value(1).toString());
+             setprenom(query.value(2).toString());
+             setdate(query.value(3).toString());
+              setnumtel(query.value(4).toInt());
+             setadr(query.value(5).toString());
+             setmail(query.value(6).toString());
+
+            }
+        }
+     return this;
+}
+bool Employe::controlemail(QString test)
+{
+
+    for(int i=0;i<test.length();i++)
+    {
+        if (test.at(i)=='@' )
+        {
+            return true;
+        }
+    }
+   {
+
+    return false;
+}}
+ bool Employe::verifid(int idemp)
+ {bool test=false;
+      QSqlQuery  query;
+      QString num_string=QString::number(idemp);
+             query.prepare("SELECT * FROM EMPLOYE where IDEMP=:idemp");
+              query.bindValue(":idemp",num_string);
+         if(query.exec()&&query.next())
+         {     test=true;
+              return test;
+         }
+         return test;
+
+
+
+ }

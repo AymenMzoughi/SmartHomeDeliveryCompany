@@ -231,9 +231,44 @@ QSqlQueryModel* Conge::trierc(int index)
 
 
 
+Conge* Conge::readconge (QString val)
+{
+ QSqlQuery query;
+    query.prepare("Select * FROM CONGE where IDC='"+val+"'");
+        if(query.exec())
+        {     while(query.next())
+            {  qDebug()<<"test"<<val;
+
+              setidc(query.value(0).toInt());
+              setnom(query.value(1).toString());
+             setprenom(query.value(2).toString());
+             setdatedeb(query.value(3).toString());
+             setdatefin(query.value(4).toString());
+             setduree(query.value(5).toInt());
+             setetat(query.value(6).toString());
+             setidemp(query.value(7).toInt());
+
+            }
+        }
+     return this;
+}
+
+int Conge::verifid(int id)
+{
+    bool test=false;
+          QSqlQuery  query;
+          QString num_string=QString::number(id);
+                 query.prepare("SELECT * FROM conge where IDC=:idemp");
+                  query.bindValue(":idemp",num_string);
+             if(query.exec()&&query.next())
+             {     test=true;
+                  return test;
+             }
+             return test;
 
 
 
+}
 
 
 

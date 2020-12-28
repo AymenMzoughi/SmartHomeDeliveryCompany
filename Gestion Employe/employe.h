@@ -30,6 +30,9 @@
       bool modifier();
       QSqlQueryModel* afficher();
       QSqlQueryModel* chercher(int,QString);
+      Employe* reademploye( QString val);
+     bool controlemail(QString);
+     bool verifid(int);
 
   private:
       QString nom,prenom,date,adr,mail;

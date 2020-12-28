@@ -13,7 +13,7 @@ Connection::Connection()
 bool Connection::createconnect()
 {bool test=false;
 QSqlDatabase db = QSqlDatabase::addDatabase("QODBC");
-db.setDatabaseName("DB_SmartHome");
+db.setDatabaseName("DB_SmartHomeDeliveryCompany");
 db.setUserName("Aymen");//inserer nom de l'utilisateur
 db.setPassword("123");//inserer mot de passe de cet utilisateur
 

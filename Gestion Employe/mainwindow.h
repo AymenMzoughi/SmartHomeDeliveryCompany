@@ -49,6 +49,10 @@ private slots:
 
     void on_pushButton_27_clicked();
 
+    void on_tabemp_activated(const QModelIndex &index);
+
+    void on_tabconge_activated(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     Employe E1;

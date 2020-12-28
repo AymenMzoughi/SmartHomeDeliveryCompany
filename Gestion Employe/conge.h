@@ -34,6 +34,9 @@
       QSqlQueryModel* chercherc(int,QString);
       QSqlQueryModel* trierc(int);
 
+      Conge* readconge (QString val);
+      int verifid(int);
+
   private:
       QString nom,prenom,datedeb,datefin,etat;
       int idc,idemp,duree;
