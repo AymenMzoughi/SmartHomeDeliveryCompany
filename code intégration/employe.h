@@ -33,7 +33,7 @@ Employe();
   Employe* reademploye( QString val);
  bool controlemail(QString);
  bool verifid(int);
-
+ bool controletel(QString);
 private:
   QString nom,prenom,date,adr,mail;
   int idemp,numtel;

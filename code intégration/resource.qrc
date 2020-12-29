@@ -19,5 +19,17 @@
         <file>img/Supprimer.png</file>
         <file>img/Trier.png</file>
         <file>img/Vehicules.png</file>
+        <file>img/stat.png</file>
+        <file>img/Clients (2).png</file>
+        <file>img/commande.png</file>
+        <file>img/Login.png</file>
+        <file>img/PageA.png</file>
+        <file>img/SAV.png</file>
+        <file>img/Stock.png</file>
+        <file>img/Page.png</file>
+        <file>img/clear.png</file>
+        <file>img/Login (2).png</file>
+        <file>img/Logout.png</file>
+        <file>img/E.png</file>
     </qresource>
 </RCC>

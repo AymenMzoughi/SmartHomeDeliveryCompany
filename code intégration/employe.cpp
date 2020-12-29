@@ -226,3 +226,17 @@ bool Employe::controlemail(QString test)
 
  }
 
+ bool Employe::controletel(QString tel )
+ {
+         for(int i=0;i<tel.length();i++)
+         {
+             if (tel.length()==8)
+             {
+                 return true;
+             }
+         }
+         {
+     return false;
+         }
+ }
+

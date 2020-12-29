@@ -32,6 +32,11 @@ MainWindow::MainWindow(QWidget *parent)
    QPixmap pix4("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
    ui->photoVeh->setPixmap(pix4);
 
+   QPixmap pix5("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
+   ui->loginp->setPixmap(pix5);
+   QPixmap pix6("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
+   ui->pa->setPixmap(pix6);
+
    //**********************************ZEINEB*******************************************//
    ui->le_num->setValidator(new QIntValidator(0, 99999, this));
 //COMBOBOX:commandes
@@ -97,8 +102,8 @@ void MainWindow::update_label()
      numplace--;
     QString numv_string=QString::number(numdesv);
     QString nump_string=QString::number(numplace);
-        ui->le_ve->setText(numv_string);
-      ui->le_pd->setText(nump_string);}// si les données reçues de arduino via la liaison série sont égales à 1*/
+       ui->le_ve_2->setText(numv_string);
+      ui->le_pd_2->setText(nump_string);}// si les données reçues de arduino via la liaison série sont égales à 1*/
 }
 void MainWindow::on_Commande_clicked()
 {
@@ -285,11 +290,11 @@ void MainWindow::on_pb_ajouter_2_clicked()
    QString adr=ui->le_adr_2->text();
    QString mail=ui->le_mail_2->text();
    Employe E(idemp,nom,prenom,dns,numtel,adr,mail);
-   //bool test1=(controleEmail(mail)&&controlenum(numtel)&&controleVide(prenom)&&controleVide(nom)&&controleVide(adr));
-
+   QString tel=ui->le_numtel_2->text();
+   Commande C;
     QMessageBox msgBox;
   bool test1=E.controlemail(mail);
-    if(test1==true&&E.verifid(idemp)==false)
+    if(test1==true&&E.verifid(idemp)==false&&C.verifvidestring(nom)&&C.verifvidestring(prenom)&&C.verifvidestring(adr)&&E.controletel(tel))
       {  msgBox.setText("Ajout avec succes.");
    E.ajouter();
     ui->tabemp_2->setModel(E1.afficher());
@@ -418,11 +423,11 @@ void MainWindow::on_pb_ajouterc_2_clicked()
     int duree=ui->dur_2->text().toInt();
     QString etat=ui->etat_3->text();
     Conge C(idc,nom,prenom,deb,fin,duree,etat,idemp);
-
+   Commande CC;
     bool test=C.verifid(idc);
    //bool test1=(controleVide(prenom)&&controleVide(nom)&&controleVide(etat));
      QMessageBox msgBox;
-     if(test==false&&C.ajouterc())
+     if(test==false&&C.ajouterc()&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(etat))
        {
          msgBox.setText("Ajout avec succes.");
 
