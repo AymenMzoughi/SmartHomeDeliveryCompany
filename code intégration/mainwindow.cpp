@@ -16,6 +16,7 @@
 #include<QMediaPlayer>
 #include <QPixmap>
 #include"employe.h"
+#include "envoyermail.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
    ui->stackedWidget1->setCurrentIndex(0);
+   //ui->stackedwidget_rfid->setCurrentIndex(0);
    QPixmap pix("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
    ui->photoEm->setPixmap(pix);
    QPixmap pix2("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
@@ -36,6 +38,26 @@ MainWindow::MainWindow(QWidget *parent)
    ui->loginp->setPixmap(pix5);
    QPixmap pix6("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
    ui->pa->setPixmap(pix6);
+    //******************************amine******************************//
+   ui->le_telephone_client->setValidator(new QIntValidator(10000000, 99999999, this));
+
+   ui->le_cheque_cf->setValidator(new QIntValidator(100000, 999999, this));
+   ui->le_num_cf->setValidator(new QIntValidator(1000, 9999, this));
+
+   ui->cb_num_supp->setModel(CF.afficher_numero());
+   ui->le_ref_client->setValidator(new QIntValidator(10000, 99999, this));
+
+
+   ui->le_points_cf->setValidator(new QIntValidator(100, 999, this));
+   ui->tab_client->setModel(E.afficher());
+   ui->tab_cf->setModel(CF.afficher());
+   ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+
+   ui->cb_reff_modif->setModel(E.afficher_reference());
+
+   //music
+   player=new QMediaPlayer(this);
+   connect(player,&QMediaPlayer::positionChanged,this,&MainWindow::on_positionChanged);
 
    //**********************************ZEINEB*******************************************//
    ui->le_num->setValidator(new QIntValidator(0, 99999, this));
@@ -84,12 +106,14 @@ ui->affectercolis->setModel(CC.afficher_idcolis());
     break;
  case(-1):qDebug() << "arduino is not available";
  }
-  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_label())); // permet de lancer
+  QObject::connect(A.getserial(),SIGNAL(readyRead()),this,SLOT(update_rfid())); // permet de lancer
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    A.close_arduino();
+    delete player;
 
 }
 
@@ -123,56 +147,26 @@ void MainWindow::on_Commande_clicked()
 void MainWindow::on_pushButtonemployees_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(1);
-    /*ui->pushButtonclients->setDisabled(true);
-    ui->pushButtonsav->setDisabled(true);
-    ui->pushButtonstock->setDisabled(true);
-    ui->Commande->setDisabled(true);
-    ui->pushButtonclients->setDisabled(true);*/
-
 }
 
 void MainWindow::on_pushButtonclients_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(4);
-    /*ui->pushButtonsav->setDisabled(true);
-    ui->pushButtonemployees->setDisabled(true);
-    ui->pushButtonstock->setDisabled(true);
-    ui->Commande->setDisabled(true);*/
-
 }
 
 void MainWindow::on_pushButtonstock_clicked()
 {
   ui->stackedWidget_2->setCurrentIndex(5);
-    /*ui->pushButtonclients->setDisabled(true);
-    ui->pushButtonemployees->setDisabled(true);
-    ui->pushButtonsav->setDisabled(true);
-    ui->Commande->setDisabled(true);
-    ui->pushButtonclients->setDisabled(true);*/
-
 }
 
 void MainWindow::on_pushButtonsav_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(3);
-    /*ui->pushButtonclients->setDisabled(true);
-    ui->pushButtonemployees->setDisabled(true);
-    ui->pushButtonstock->setDisabled(true);
-    ui->Commande->setDisabled(true);
-    ui->pushButtonclients->setDisabled(true);*/
-
 }
 
 void MainWindow::on_pageacc_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(2);
-    /*ui->pushButtonclients->setDisabled(false);
-    ui->pushButtonemployees->setDisabled(false);
-    ui->pushButtonstock->setDisabled(false);
-    ui->Commande->setDisabled(false);
-    ui->pushButtonclients->setDisabled(false);
-     ui->pushButtonsav->setDisabled(false);*/
-
 }
 
 void MainWindow::on_pb_clear_clicked()
@@ -208,6 +202,11 @@ ui->le_role->setText(RecupRole);
         ui->pushButtonsav->setDisabled(false);
         ui->Commande->setDisabled(false);
         ui->pushButtonstock->setDisabled(false);
+        ui->le_user_rfid->setText("Admin");
+        ui->le_email_rfid->setText("Admin@gmail.com");
+        ui->le_depart_rfid->setText("Administrateur");
+        QPixmap pix("C:/Users/Amine/Desktop/assistants photos/admin");
+        ui->le_photo->setPixmap(pix.scaled(100,100));
 
 
 
@@ -241,6 +240,14 @@ ui->le_role->setText(RecupRole);
          ui->pushButtonstock->setDisabled(true);
          ui->Commande->setDisabled(true);
          ui->pushButtonclients->setDisabled(false);
+
+         ui->label_3->setText("accés authorisé");
+         ui->le_user_rfid->setText("mohamed amine aouididi");
+         ui->le_email_rfid->setText("amine@gmail.com");
+         ui->le_depart_rfid->setText("assistant de la gestion des clients");
+         QPixmap pix("C:/Users/Amine/Desktop/assistants photos/amine");
+         ui->le_photo->setPixmap(pix.scaled(100,100));
+
      }else if(RecupRole=="assistantCommande")
      {
          ui->stackedWidget1->setCurrentIndex(1);
@@ -840,4 +847,472 @@ void MainWindow::on_statistique_clicked()
 {
     s=new Statistique_veh(this);
        s->show();
+}
+
+/*void MainWindow::on_pushButton_2_clicked()
+{
+    ui->stackedwidget_rfid->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->stackedwidget_rfid->setCurrentIndex(0);
+}*/
+void MainWindow::update_rfid()
+{
+    data = A.read_from_arduino();
+    int i;
+        for(i=0; i<=5; i++)
+       { if(data=="1")
+        {
+            ui->label_3->setText("accés authorisé");
+            ui->le_user_rfid->setText("mohamed amine aouididi");
+            ui->le_email_rfid->setText("amine@gmail.com");
+            ui->le_depart_rfid->setText("assistant de la gestion des clients");
+            QPixmap pix("C:/Users/Amine/Desktop/assistants photos/amine");
+            ui->le_photo->setPixmap(pix.scaled(100,100));
+            ui->stackedWidget1->setCurrentIndex(1);
+            ui->stackedWidget_2->setCurrentIndex(4);
+            ui->pushButtonsav->setDisabled(true);
+            ui->pushButtonemployees->setDisabled(true);
+            ui->pushButtonstock->setDisabled(true);
+            ui->Commande->setDisabled(true);
+            ui->pushButtonclients->setDisabled(false);
+
+        }else if(data=="2")
+        {
+                ui->label_3->setText("accés authorisé");
+                ui->le_user_rfid->setText("Admin");
+                ui->le_email_rfid->setText("Admin@gmail.com");
+                ui->le_depart_rfid->setText("Administrateur");
+                QPixmap pix("C:/Users/Amine/Desktop/assistants photos/admin");
+                ui->le_photo->setPixmap(pix.scaled(100,100));
+
+                ui->stackedWidget1->setCurrentIndex(1);
+                ui->pushButtonclients->setDisabled(false);
+                ui->pushButtonemployees->setDisabled(false);
+                ui->pushButtonsav->setDisabled(false);
+                ui->Commande->setDisabled(false);
+                ui->pushButtonstock->setDisabled(false);
+
+        }else if(data=="0")
+        {
+            ui->label_3->setText("access denied");
+            ui->le_user_rfid->setText("");
+            ui->le_email_rfid->setText("");
+            ui->le_depart_rfid->setText("");
+            QPixmap pix("C:/Users/Amine/Desktop/assistants photos/black screen");
+            ui->le_photo->setPixmap(pix.scaled(100,100));
+        }
+       }
+}
+
+
+
+
+
+bool MainWindow::controlTel(int test)
+{
+    QString tel= QString::number(test);
+    for(int i=0;i<tel.length();i++)
+    {
+        if (tel.length()==8)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool MainWindow::controlRef(int test)
+{
+    QString num= QString::number(test);
+    for(int i=0;i<num.length();i++)
+    {
+        if (num.length()==5)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool MainWindow::controlVide(QString test)
+{
+    if(test!="")
+        return  true;
+    return false;
+}
+bool MainWindow::controlEmail(QString test)
+{
+    for(int i=0;i<test.length();i++)
+    {
+        if (test.at(i)=='@')
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool MainWindow:: controlNumero(int test)
+{
+    QString num= QString::number(test);
+    for(int i=0;i<num.length();i++)
+    {
+        if (num.length()==4)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool MainWindow::controlPoints(int test)
+{
+    QString num= QString::number(test);
+    for(int i=0;i<num.length();i++)
+    {
+        if (num.length()==3)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool MainWindow:: controlCheque(int test)
+{
+    QString num= QString::number(test);
+    for(int i=0;i<num.length();i++)
+    {
+        if (num.length()==6)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+
+void MainWindow::on_slider_volume_sliderMoved(int position)
+{
+    player->setVolume(position);
+}
+
+void MainWindow::on_start_clicked()
+{
+    //load the file
+    player->setMedia(QUrl::fromLocalFile("C:/Users/Amine/Desktop/projetcpp/music.mp3"));
+    player->play();
+    qDebug()<< player->errorString();
+}
+
+void MainWindow::on_pause_clicked()
+{
+    player->stop();
+}
+
+
+void MainWindow::on_positionChanged(qint64 position)
+{
+    ui->slider_volume->setMaximum(position);
+}
+
+void MainWindow::on_tab_cf_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_cf->model()->data(index).toString();
+
+
+
+      QSqlQuery qry;
+    qry.prepare("select * from cartefidelite where numero= '"+val+"' or cheque='"+val+"' or points='"+val+"' or refer_clients='"+val+"' ");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            ui->le_num->setText(qry.value(0).toString());
+            ui->le_points_cf->setText(qry.value(1).toString());
+            ui->le_cheque_cf->setText(qry.value(2).toString());
+            ui->comboBox_refer_cf->setCurrentText(qry.value(5).toString());
+            ui->cb_num_supp->setCurrentText(qry.value(0).toString());
+
+        };
+
+
+    }
+
+
+}
+
+void MainWindow::on_tab_client_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_client->model()->data(index).toString();
+
+
+    QSqlQuery qry;
+    qry.prepare("select * from clients where Ref_c='"+val+"' or telephone ='"+val+"' or nom_c='"+val+"' or Email='"+val+"' or pays='"+val+"' or adresse='"+val+"'  ");
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+          ui->le_ref_client->setText(qry.value(0).toString());
+
+          ui->le_Email_client->setText(qry.value(1).toString());
+           ui->le_telephone_client->setText(qry.value(2).toString());
+          ui->le_nom_client->setText(qry.value(3).toString());
+          ui->le_adresse_client->setText(qry.value(4).toString());
+          ui->le_pays_client->setText(qry.value(5).toString());
+
+          ui->cb_reff_modif->setCurrentText(qry.value(0).toString());
+        };
+    }
+}
+
+
+void MainWindow::on_pb_envoyermail_client_clicked()
+{
+    EnvoyerMail E;
+    E.setModal(true);
+    E.exec();
+}
+
+void MainWindow::on_pb_ajout_client_clicked()
+{
+
+    int telephone=ui->le_telephone_client->text().toInt();
+    int Ref_c=ui->le_ref_client->text().toInt();
+    QString Email=ui->le_Email_client->text();
+    QString nom_c=ui->le_nom_client->text();
+    QString pays=ui->le_pays_client->text();
+    QString adresse=ui->le_adresse_client->text();
+Clients C(Ref_c,telephone,Email,nom_c,pays,adresse);
+bool test1=((controlEmail(Email))&&(controlRef(Ref_c))&&(controlTel(telephone))&&(controlVide(adresse))&&(controlVide(nom_c)));
+
+if(test1)
+  {
+    bool test=C.ajouter();
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("ajouter un client"),
+                                   QObject::tr("client ajouté.\n"
+                                               "Click Cancel to exit."), QMessageBox::Cancel);
+ ui->tab_client->setModel(C.afficher());
+
+ ui->cb_reff_modif->setModel(C.afficher_reference());
+ ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+    }
+    }
+else
+{ QMessageBox::information(nullptr, QObject::tr("ajouter un client"),
+                           QObject::tr("client non ajouté, vérifier les champs.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+}
+}
+
+void MainWindow::on_pb_supprimer_client_clicked()
+{
+    QMessageBox msgBox;
+    Clients C1;
+
+
+C1.setRef(ui->cb_reff_modif->currentText().toInt());
+        bool test=C1.supprimer(C1.getRef());
+    if(test)
+      {  msgBox.setText("supprission avec succes.");
+    ui->tab_client->setModel(C1.afficher());
+    ui->cb_reff_modif->setModel(C1.afficher_reference());
+    ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+    }else
+    { msgBox.setText("Echec de supprission");}
+        msgBox.exec();
+
+
+
+}
+
+void MainWindow::on_pb_modif_client_clicked()
+{
+    int telephone=ui->le_telephone_client->text().toInt();
+    int Ref_c=ui->cb_reff_modif->currentText().toInt();
+    QString Email=ui->le_Email_client->text();
+    QString nom_c=ui->le_nom_client->text();
+    QString pays=ui->le_pays_client->text();
+    QString adresse=ui->le_adresse_client->text();
+Clients C(Ref_c,telephone,Email,nom_c,pays,adresse);
+bool test1=((controlEmail(Email))&&(controlRef(Ref_c))&&(controlTel(telephone))&&(controlVide(adresse))&&(controlVide(nom_c)));
+if(test1)
+  {
+    bool test=C.modifier();
+    if(test)
+    {
+        QMessageBox::information(nullptr, QObject::tr("modifier un client"),
+                                   QObject::tr("client modifié.\n"
+                                               "Click Cancel to exit."), QMessageBox::Cancel);
+ ui->tab_client->setModel(C.afficher());
+ ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+ ui->cb_reff_modif->setModel(E.afficher_reference());
+    }
+    }
+else
+{ QMessageBox::information(nullptr, QObject::tr("ajouter un client"),
+                           QObject::tr("client non ajouté, vérifier les champs.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+}
+
+
+
+void MainWindow::on_pb_ajout_cf_clicked()
+{
+    int refer_clients=ui->comboBox_refer_cf->currentText().toInt();
+ int numero=ui->le_num_cf->text().toInt();
+ int points=ui->le_points_cf->text().toInt();
+ int cheque=ui->le_cheque_cf->text().toInt();
+ QDate date_em=ui->le_date_em->date();
+ QDate date_ex=ui->le_date_ex->date();
+ CarteFidelite CF(numero,points,cheque,date_em,date_ex,refer_clients);
+ bool test1=((controlNumero(numero))&&(controlPoints(points))&&(controlCheque(cheque)));
+
+
+     if(test1)
+       {
+         bool test=CF.ajouter();
+         if(test)
+         {
+             QMessageBox::information(nullptr, QObject::tr("ajouter une carte fidélité"),
+                                        QObject::tr("carte ajouté.\n"
+                                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+      ui->tab_cf->setModel(CF.afficher());
+      ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+      ui->cb_num_supp->setModel(CF.afficher_numero());
+         }else{
+             QMessageBox::critical(nullptr, QObject::tr("ajouter une carte fidélité"),
+                                             QObject::tr("ce client posséde déjà une carte fidélité.\n"
+                                                         "Click Cancel to exit."), QMessageBox::Cancel);
+         }
+         }
+     else
+     { QMessageBox::critical(nullptr, QObject::tr("ajouter une carte fidélité"),
+                                QObject::tr("carte non ajouté, vérifier les champs.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);
+     }
+
+}
+
+void MainWindow::on_pb_supp_cf_clicked()
+{
+    CarteFidelite CF;
+    CF.setNum(ui->cb_num_supp->currentText().toInt());
+    bool test=CF.supprimer(CF.getNum());
+    QMessageBox msgBox;
+    if(test)
+      {  msgBox.setText("supprission avec succes.");
+    ui->tab_cf->setModel(CF.afficher());
+    ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+    ui->cb_num_supp->setModel(CF.afficher_numero());
+
+
+    }else
+    { msgBox.setText("Echec de supprission");}
+        msgBox.exec();
+}
+
+void MainWindow::on_pb_modifier_cf_clicked()
+{
+    int refer_clients=ui->comboBox_refer_cf->currentText().toInt();
+    int numero=ui->cb_num_supp->currentText().toInt();
+    int points=ui->le_points_cf->text().toInt();
+    int cheque=ui->le_cheque_cf->text().toInt();
+    QDate date_em=ui->le_date_em->date();
+    QDate date_ex=ui->le_date_ex->date();
+    CarteFidelite CF(numero,points,cheque,date_em,date_ex,refer_clients);
+    bool test1=((controlNumero(numero))&&(controlPoints(points))&&(controlCheque(cheque)));
+
+    if(test1)
+      {
+       bool test=CF.modifier();
+        if(test)
+        {
+            QMessageBox::information(nullptr, QObject::tr("modifier une carte fidélité"),
+                                       QObject::tr("carte modifié.\n"
+                                                   "Click Cancel to exit."), QMessageBox::Cancel);
+     ui->tab_cf->setModel(CF.afficher());
+     ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+
+     ui->cb_num_supp->setModel(CF.afficher_numero());        }
+        }
+    else
+    { QMessageBox::critical(nullptr, QObject::tr("modifier une carte fidélité"),
+                               QObject::tr("carte non modifié, vérifier les champs.\n"
+                                           "Click Cancel to exit."), QMessageBox::Cancel);
+    }
+
+}
+
+void MainWindow::on_comboBox_tri_activated(const QString &arg1)
+{
+    QString choix=ui->comboBox_tri_cf->currentText();
+    ui->tab_cf->setModel(CF.afficher_choix(choix));
+}
+
+void MainWindow::on_comboBox_tri_client_activated(const QString &arg1)
+{
+    QString choix=ui->comboBox_tri_client->currentText();
+    ui->tab_client->setModel(E.afficher_choix(choix));
+
+}
+
+void MainWindow::on_pb_rech_cf_2_clicked()
+{
+    QString val=ui->dateEdit->text();
+    if(val!="")
+        ui->tab_cf->setModel(CF.afficher_recherche(val));
+}
+
+void MainWindow::on_search_pb_clicked()
+{
+    QString val=ui->le_amine->text();
+    QString option=ui->cb_rech_client->currentText();
+    if((val!="")&&(option=="nom"))
+{        ui->tab_client->setModel(E.afficher_recherche(val));}
+    else if((val!="")&&(option=="reference"))
+    {
+       ui->tab_client->setModel(E.afficher_recherche2(val));
+    }
+    else if((val!="")&&(option=="telephone"))
+    {
+       ui->tab_client->setModel(E.afficher_recherche3(val));
+    }else if(option=="choisir")
+    {
+       ui->tab_client->setModel(E.afficher());
+    }
+}
+
+void MainWindow::on_pb_rech_cf_3_clicked()
+{
+    QString option=ui->cb_rech_cf->currentText();
+    QString val=ui->le_rech_cf->text();
+    if((val!="")&&(option=="numero"))
+    {
+       ui->tab_cf->setModel(CF.afficher_recherche2(val));
+    }else if((val!="")&&(option=="points"))
+    {
+       ui->tab_cf->setModel(CF.afficher_recherche3(val));
+    }else if(option=="choisir")
+        ui->tab_cf->setModel(CF.afficher());
+}
+
+void MainWindow::on_comboBox_tri_cf_activated(const QString &arg1)
+{
+    QString choix=ui->comboBox_tri_cf->currentText();
+    ui->tab_cf->setModel(CF.afficher_choix(choix));
+}
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    close();
+}
+
+void MainWindow::on_pushButton_12_clicked()
+{
+    close();
 }

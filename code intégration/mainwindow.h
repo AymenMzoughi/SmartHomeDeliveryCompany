@@ -9,6 +9,9 @@
 #include"vehicule.h"
 #include"statistique_veh.h"
 #include"arduino.h"
+#include "clients.h"
+#include "cartefidelite.h"
+#include <QMediaPlayer>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -100,6 +103,58 @@ private slots:
 
     void on_statistique_clicked();
     void  update_label();
+//amine
+    bool controlTel(int test);
+    bool controlRef(int test);
+    bool controlVide(QString test);
+    bool controlEmail(QString test);
+    bool controlNumero(int test);
+    bool controlPoints(int test);
+    bool controlCheque(int test);
+    void update_rfid();
+    void on_slider_volume_sliderMoved(int position);
+
+    void on_start_clicked();
+
+    void on_pause_clicked();
+
+    void on_positionChanged(qint64 position);
+
+    void on_tab_cf_activated(const QModelIndex &index);
+
+    void on_tab_client_activated(const QModelIndex &index);
+
+
+    void on_pb_envoyermail_client_clicked();
+
+    void on_pb_ajout_client_clicked();
+
+    void on_pb_supprimer_client_clicked();
+
+    void on_pb_modif_client_clicked();
+
+    void on_pb_ajout_cf_clicked();
+
+    void on_pb_supp_cf_clicked();
+
+    void on_pb_modifier_cf_clicked();
+
+    void on_comboBox_tri_activated(const QString &arg1);
+
+    void on_comboBox_tri_client_activated(const QString &arg1);
+
+    void on_pb_rech_cf_2_clicked();
+
+    void on_search_pb_clicked();
+
+    void on_pb_rech_cf_3_clicked();
+
+    void on_comboBox_tri_cf_activated(const QString &arg1);
+
+    void on_pushButton_11_clicked();
+
+    void on_pushButton_12_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe E1;
@@ -112,6 +167,9 @@ private:
     QByteArray data;
     int numdesv=0;
     int numplace=30;
+    QMediaPlayer *player;
+    Clients E;
+    CarteFidelite CF;
 
 
 

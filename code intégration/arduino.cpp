@@ -60,14 +60,14 @@ int Arduino::close_arduino()
  QByteArray Arduino::read_from_arduino()
 {
     if(serial->isReadable()){
-         data=(serial->readAll());
-          qDebug() <<" data"<<data;//récupérer les données reçues
+         data=serial->readAll();
+          //qDebug() <<" data"<<data;//récupérer les données reçues
          return data;
     }
  }
 
 
-int Arduino::write_to_arduino( QByteArray d)
+/*int Arduino::write_to_arduino( QByteArray d)
 
 {   if(serial->isWritable()){
         serial->write(d);  // envoyer des donnés vers Arduino
@@ -76,4 +76,4 @@ int Arduino::write_to_arduino( QByteArray d)
     }
 
 
-}
+}*/

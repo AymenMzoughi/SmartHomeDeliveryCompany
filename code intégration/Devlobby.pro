@@ -11,29 +11,38 @@ CONFIG += c++11
 SOURCES += \
     admin.cpp \
     arduino.cpp \
+    cartefidelite.cpp \
+    clients.cpp \
     commande.cpp \
     commande_colis.cpp \
     conge.cpp \
     connexion.cpp \
     employe.cpp \
+    envoyermail.cpp \
     main.cpp \
     mainwindow.cpp \
+    smtp.cpp \
     statistique_veh.cpp \
     vehicule.cpp
 
 HEADERS += \
     admin.h \
     arduino.h \
+    cartefidelite.h \
+    clients.h \
     commande.h \
     commande_colis.h \
     conge.h \
     connexion.h \
     employe.h \
+    envoyermail.h \
     mainwindow.h \
+    smtp.h \
     statistique_veh.h \
     vehicule.h
 
 FORMS += \
+    envoyermail.ui \
     mainwindow.ui \
     statistique_veh.ui
 
