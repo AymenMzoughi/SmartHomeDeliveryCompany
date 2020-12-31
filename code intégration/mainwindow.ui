@@ -314,8 +314,8 @@ color: rgb(255, 255, 255);</string>
      <widget class="QStackedWidget" name="stackedWidget_2">
       <property name="geometry">
        <rect>
-        <x>259</x>
-        <y>190</y>
+        <x>240</x>
+        <y>120</y>
         <width>1481</width>
         <height>1000</height>
        </rect>
@@ -324,7 +324,7 @@ color: rgb(255, 255, 255);</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="pcommande">
        <widget class="QGroupBox" name="commande">
@@ -810,7 +810,7 @@ color: rgb(255, 255, 255);</string>
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>480</y>
+             <y>400</y>
              <width>127</width>
              <height>27</height>
             </rect>
@@ -858,7 +858,7 @@ color: rgb(255, 255, 255);</string>
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>340</y>
+             <y>470</y>
              <width>127</width>
              <height>27</height>
             </rect>
@@ -963,7 +963,7 @@ color: rgb(255, 255, 255);</string>
            <property name="geometry">
             <rect>
              <x>260</x>
-             <y>410</y>
+             <y>340</y>
              <width>127</width>
              <height>27</height>
             </rect>
@@ -1080,7 +1080,7 @@ font: 8pt &quot;Junior Prince&quot;;
 </string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tab_5">
           <attribute name="title">
@@ -1597,7 +1597,7 @@ font: 8pt &quot;Junior Prince&quot;;
 color: rgb(255, 255, 255);</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="pushButton_28">
+          <widget class="QPushButton" name="envoyerCmail">
            <property name="geometry">
             <rect>
              <x>950</x>
@@ -1902,7 +1902,7 @@ color: rgb(255, 255, 255);</string>
           <zorder>etat_3</zorder>
           <zorder>fin_2</zorder>
           <zorder>dur_2</zorder>
-          <zorder>pushButton_28</zorder>
+          <zorder>envoyerCmail</zorder>
           <zorder>pb_modifierc_2</zorder>
           <zorder>pb_supprimerc_2</zorder>
           <zorder>pb_ajouterc_2</zorder>
@@ -4037,10 +4037,10 @@ font-family:calibri;
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>260</x>
+        <x>250</x>
         <y>10</y>
         <width>451</width>
-        <height>161</height>
+        <height>121</height>
        </rect>
       </property>
       <property name="title">
@@ -4050,7 +4050,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>40</y>
+         <y>10</y>
          <width>221</width>
          <height>20</height>
         </rect>
@@ -4066,7 +4066,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>70</y>
+         <y>40</y>
          <width>221</width>
          <height>20</height>
         </rect>
@@ -4082,7 +4082,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>100</y>
+         <y>80</y>
          <width>221</width>
          <height>20</height>
         </rect>
@@ -4098,7 +4098,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>30</y>
+         <y>10</y>
          <width>101</width>
          <height>91</height>
         </rect>
@@ -4114,7 +4114,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>40</y>
+         <y>10</y>
          <width>71</width>
          <height>20</height>
         </rect>
@@ -4130,7 +4130,7 @@ font-family:calibri;
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>70</y>
+         <y>40</y>
          <width>61</width>
          <height>20</height>
         </rect>
@@ -4145,8 +4145,8 @@ font-family:calibri;
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>100</y>
+         <x>130</x>
+         <y>80</y>
          <width>81</width>
          <height>20</height>
         </rect>
@@ -4183,7 +4183,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>2059</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

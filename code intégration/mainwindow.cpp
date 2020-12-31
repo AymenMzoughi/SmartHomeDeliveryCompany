@@ -25,18 +25,18 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
    ui->stackedWidget1->setCurrentIndex(0);
    //ui->stackedwidget_rfid->setCurrentIndex(0);
-   QPixmap pix("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
+   QPixmap pix("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
    ui->photoEm->setPixmap(pix);
-   QPixmap pix2("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
+   QPixmap pix2("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
    ui->photoCong_2->setPixmap(pix2);
-   QPixmap pix3("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
+   QPixmap pix3("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
    ui->photoCmd->setPixmap(pix3);
-   QPixmap pix4("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
+   QPixmap pix4("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
    ui->photoVeh->setPixmap(pix4);
 
-   QPixmap pix5("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
+   QPixmap pix5("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
    ui->loginp->setPixmap(pix5);
-   QPixmap pix6("D:/2eme/Projet/projetlastinchalah/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
+   QPixmap pix6("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
    ui->pa->setPixmap(pix6);
     //******************************amine******************************//
    ui->le_telephone_client->setValidator(new QIntValidator(10000000, 99999999, this));
@@ -307,6 +307,7 @@ void MainWindow::on_pb_ajouter_2_clicked()
     ui->tabemp_2->setModel(E1.afficher());
     ui->comboBoxemp->setModel(V1.affiche_employer());
      ui->idemp->setModel(CO1.afficher_idemp());
+
     }
 
     else
@@ -1097,6 +1098,7 @@ if(test1)
 
  ui->cb_reff_modif->setModel(C.afficher_reference());
  ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+ ui->comboBoxidclient->setModel(CO1.afficher_idclient());
     }
     }
 else
@@ -1315,4 +1317,15 @@ void MainWindow::on_pushButton_11_clicked()
 void MainWindow::on_pushButton_12_clicked()
 {
     close();
+}
+
+void MainWindow::on_envoyerCmail_clicked()
+{
+
+
+    EnvoyerMail E;
+        E.setModal(true);
+        E.exec();
+
+
 }

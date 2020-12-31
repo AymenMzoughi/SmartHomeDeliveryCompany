@@ -18,7 +18,6 @@
         <file>img/Rechercher.png</file>
         <file>img/Supprimer.png</file>
         <file>img/Trier.png</file>
-        <file>img/Vehicules.png</file>
         <file>img/stat.png</file>
         <file>img/Clients (2).png</file>
         <file>img/commande.png</file>
@@ -31,5 +30,6 @@
         <file>img/Login (2).png</file>
         <file>img/Logout.png</file>
         <file>img/E.png</file>
+        <file>img/Vehicules.png</file>
     </qresource>
 </RCC>

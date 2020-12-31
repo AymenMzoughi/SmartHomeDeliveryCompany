@@ -108,8 +108,8 @@ bool Commande :: ajouter()
     QString id_string=QString::number(idclient);
     QString montant_string=QString::number(montant, 'f', 4);
     QDate datedecommannde_date =QDate::fromString(datedecommande,"dd/MM/yy");
-          query.prepare("INSERT INTO COMMANDE (NUMERO,DESCRIPTION,DATEDECOMMANDE,MODEDEPAIMENT,MONTANT,REF_CLIENT,ID_EMP) "
-                        "VALUES (:NUMERO,:DESCRIPTION,:DATEDECOMMANDE,:MODEDEPAIMENT,:MONTANT,:REF_CLIENT,:ID_EMP)");
+    query.prepare("INSERT INTO COMMANDE (NUMERO,DESCRIPTION,DATEDECOMMANDE,MODEDEPAIMENT,MONTANT,ID_EMP,REF_CLIENT) "
+                           "VALUES (:NUMERO,:DESCRIPTION,:DATEDECOMMANDE,:MODEDEPAIMENT,:MONTANT,:ID_EMP,:REF_CLIENT)");
           query.bindValue(":NUMERO", num_string);
           query.bindValue(":DATEDECOMMANDE",datedecommannde_date);
              query.bindValue(":DESCRIPTION",description);
@@ -142,13 +142,13 @@ QSqlQueryModel* Commande::afficher()
 {
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT* FROM COMMANDE");
-          model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUMERO"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("DESCRIPTION"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE DE COMMANDE"));
-          model->setHeaderData(3, Qt::Horizontal, QObject::tr("MODEDEPAIMENT"));
-          model->setHeaderData(4, Qt::Horizontal, QObject::tr("MONTANT"));
-           model->setHeaderData(5, Qt::Horizontal, QObject::tr("REF_CLIENT"));
-           model->setHeaderData(6, Qt::Horizontal, QObject::tr("ID_EMP"));
+              model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUMERO"));
+              model->setHeaderData(1, Qt::Horizontal, QObject::tr("DESCRIPTION"));
+              model->setHeaderData(2, Qt::Horizontal, QObject::tr("DATE DE COMMANDE"));
+              model->setHeaderData(3, Qt::Horizontal, QObject::tr("MODEDEPAIMENT"));
+              model->setHeaderData(4, Qt::Horizontal, QObject::tr("MONTANT"));
+               model->setHeaderData(6, Qt::Horizontal, QObject::tr("REF_CLIENT"));
+               model->setHeaderData(5, Qt::Horizontal, QObject::tr("ID_EMP"));
     return model;
 
 
@@ -212,9 +212,9 @@ bool Commande::verifierid(int numero)
 }
 QSqlQueryModel * Commande::afficher_idclient()
 {
-     QSqlQueryModel * model =new QSqlQueryModel();
-     model->setQuery("select REFCLIENT from  client");
-     return model ;
+    QSqlQueryModel * model =new QSqlQueryModel();
+       model->setQuery("select Ref_c from  clients");
+       return model ;
 
 }
 QSqlQueryModel * Commande::afficher_idemp()

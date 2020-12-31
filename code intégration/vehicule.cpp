@@ -120,13 +120,13 @@ QSqlQueryModel* Vehicule ::afficher()
 
     QSqlQueryModel* model=new QSqlQueryModel();
     model->setQuery("SELECT* FROM vehicule");
-          model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
-          model->setHeaderData(1, Qt::Horizontal, QObject::tr("numdechassis"));
-          model->setHeaderData(2, Qt::Horizontal, QObject::tr("marque"));
-          model->setHeaderData(3, Qt::Horizontal, QObject::tr("type vehicule"));
-          model->setHeaderData(4, Qt::Horizontal, QObject::tr("typecarburant"));
-          model->setHeaderData(5, Qt::Horizontal, QObject::tr("id employee"));
-
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("matricule"));
+              model->setHeaderData(1, Qt::Horizontal, QObject::tr("numdechassis"));
+              model->setHeaderData(2, Qt::Horizontal, QObject::tr("marque"));
+              model->setHeaderData(3, Qt::Horizontal, QObject::tr("type vehicule"));
+              model->setHeaderData(4, Qt::Horizontal, QObject::tr("typecarburant"));
+              model->setHeaderData(5, Qt::Horizontal, QObject::tr("Date de circulation"));
+              model->setHeaderData(6, Qt::Horizontal, QObject::tr("id employee"));
     return model;
 
 }

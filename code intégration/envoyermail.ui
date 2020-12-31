@@ -482,6 +482,16 @@ font-family:calibri;
       <string>mise à jours des cordonnées du client</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Etat du dossier du congé</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string/>
+     </property>
+    </item>
    </widget>
   </widget>
  </widget>
