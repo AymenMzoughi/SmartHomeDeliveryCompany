@@ -11,6 +11,8 @@
 #include"arduino.h"
 #include "clients.h"
 #include "cartefidelite.h"
+#include"colis.h"
+#include"entrepots.h"
 #include <QMediaPlayer>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -157,6 +159,32 @@ private slots:
 
     void on_envoyerCmail_clicked();
 
+    void on_ajouter_colis_clicked();
+
+    void on_tabcolis_activated(const QModelIndex &index);
+
+    void on_modifier_colis_clicked();
+
+    void on_supprimer_colis_clicked();
+
+    void on_chercher_colis_2_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_ajouter_etr_clicked();
+
+    void on_modifier_entr_clicked();
+
+    void on_supprimer_entro_clicked();
+
+    void on_trier_entr_clicked();
+
+    void on_chercher_entr_clicked();
+
+    void on_tabentrep_activated(const QModelIndex &index);
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe E1;
@@ -172,6 +200,8 @@ private:
     QMediaPlayer *player;
     Clients E;
     CarteFidelite CF;
+    colis Cl1;
+    Entrepots ET1;
 
 
 

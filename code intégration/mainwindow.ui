@@ -324,7 +324,7 @@ color: rgb(255, 255, 255);</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pcommande">
        <widget class="QGroupBox" name="commande">
@@ -3912,8 +3912,8 @@ font-family:calibri;
          <rect>
           <x>30</x>
           <y>30</y>
-          <width>971</width>
-          <height>411</height>
+          <width>1071</width>
+          <height>651</height>
          </rect>
         </property>
         <property name="font">
@@ -3926,11 +3926,360 @@ font-family:calibri;
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color:white;</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string>Stock</string>
         </property>
+        <widget class="QTabWidget" name="tabWidget_4">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>40</y>
+           <width>1041</width>
+           <height>571</height>
+          </rect>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab_3">
+          <attribute name="title">
+           <string>entrepots</string>
+          </attribute>
+          <widget class="QPushButton" name="ajouter_etr">
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Ajouter</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="modifier_entr">
+           <property name="geometry">
+            <rect>
+             <x>330</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Modifier</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="supprimer_entro">
+           <property name="geometry">
+            <rect>
+             <x>460</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>supprimer</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="trier_entr">
+           <property name="geometry">
+            <rect>
+             <x>790</x>
+             <y>320</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>trier</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="chercher_entr">
+           <property name="geometry">
+            <rect>
+             <x>750</x>
+             <y>30</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>chercher</string>
+           </property>
+          </widget>
+          <widget class="QTableView" name="tabentrep">
+           <property name="geometry">
+            <rect>
+             <x>440</x>
+             <y>90</y>
+             <width>521</width>
+             <height>192</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="ref">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>70</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="adresse">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>110</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="region">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>150</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="nsalles">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>190</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="nvehicules">
+           <property name="geometry">
+            <rect>
+             <x>180</x>
+             <y>230</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_entro">
+           <property name="geometry">
+            <rect>
+             <x>450</x>
+             <y>30</y>
+             <width>73</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEditentre">
+           <property name="geometry">
+            <rect>
+             <x>570</x>
+             <y>30</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_tri22">
+           <property name="geometry">
+            <rect>
+             <x>542</x>
+             <y>320</y>
+             <width>151</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="geometry">
+            <rect>
+             <x>710</x>
+             <y>400</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Enovyer</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="tab_4">
+          <attribute name="title">
+           <string>colis</string>
+          </attribute>
+          <widget class="QLineEdit" name="code_barre">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>60</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="longeur">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>130</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="largeur">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>200</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="poids">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>300</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="hauteur">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>250</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="supprimer_colis">
+           <property name="geometry">
+            <rect>
+             <x>480</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>supprimer</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="modifier_colis">
+           <property name="geometry">
+            <rect>
+             <x>360</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>modifier</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="ajouter_colis">
+           <property name="geometry">
+            <rect>
+             <x>240</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>ajouter</string>
+           </property>
+          </widget>
+          <widget class="QTableView" name="tabcolis">
+           <property name="geometry">
+            <rect>
+             <x>380</x>
+             <y>100</y>
+             <width>521</width>
+             <height>241</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="chercher_colis">
+           <property name="geometry">
+            <rect>
+             <x>550</x>
+             <y>30</y>
+             <width>113</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="chercher_colis_2">
+           <property name="geometry">
+            <rect>
+             <x>730</x>
+             <y>30</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>chercher</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_colis">
+           <property name="geometry">
+            <rect>
+             <x>410</x>
+             <y>30</y>
+             <width>73</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_tri">
+           <property name="geometry">
+            <rect>
+             <x>660</x>
+             <y>390</y>
+             <width>73</width>
+             <height>22</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="geometry">
+            <rect>
+             <x>790</x>
+             <y>390</y>
+             <width>93</width>
+             <height>28</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>trier</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
        </widget>
       </widget>
      </widget>

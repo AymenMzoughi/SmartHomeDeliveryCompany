@@ -13,11 +13,13 @@ SOURCES += \
     arduino.cpp \
     cartefidelite.cpp \
     clients.cpp \
+    colis.cpp \
     commande.cpp \
     commande_colis.cpp \
     conge.cpp \
     connexion.cpp \
     employe.cpp \
+    entrepots.cpp \
     envoyermail.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,11 +32,13 @@ HEADERS += \
     arduino.h \
     cartefidelite.h \
     clients.h \
+    colis.h \
     commande.h \
     commande_colis.h \
     conge.h \
     connexion.h \
     employe.h \
+    entrepots.h \
     envoyermail.h \
     mainwindow.h \
     smtp.h \

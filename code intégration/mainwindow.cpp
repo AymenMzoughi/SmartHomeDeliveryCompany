@@ -97,6 +97,27 @@ ui->tabvehicule->setModel(V1.afficher());
 //COMBOBOX:affectation
 ui->affectercolis->setModel(CC.afficher_idcolis());
  ui->affecternumcommande->setModel(CC.afficher_idcommande());
+ /***************************mariem***************************/
+  ui->tabcolis->setModel(Cl1.afficher());
+  ui->comboBox_colis->addItem("longeur");
+   ui->comboBox_colis->addItem("poids");
+    ui->comboBox_colis->addItem("code barre ");
+
+    ui->comboBox_tri->addItem("code barre");
+    ui->comboBox_tri->addItem("poids");
+      ui->comboBox_tri->addItem("largeur");
+      ui->comboBox_tri22->addItem("ref");
+      ui->comboBox_tri22->addItem("region");
+      ui->comboBox_tri22->addItem("numsalle");
+      ui->comboBox_entro->addItem("ref");
+      ui->comboBox_entro->addItem("adresse");
+      ui->comboBox_entro->addItem("region");
+      ui->comboBox_entro->addItem("num salle");
+      ui->tabentrep->setModel(ET1.afficher());
+
+
+
+
 //ard
  int ret=A.connect_arduino(); // lancer la connexion à arduino
  switch(ret){
@@ -604,12 +625,12 @@ void MainWindow::on_supprimerCommandes_clicked()
        msgBox.setText("Suppression avec succes.");
 
            ui->tabcommande->setModel(CO1.afficher());
-           //ui->affecternumcommande->setModel(CC.afficher_idcommande());
+           ui->affecternumcommande->setModel(CC.afficher_idcommande());
            ui->le_num->setText("");
            ui->description->setText("");
            ui->montant->setText("");
 
-          //CC.updateetat(numtest);
+          CC.updateetat(numtest);
 
        }
        else
@@ -1329,4 +1350,253 @@ void MainWindow::on_envoyerCmail_clicked()
         E.exec();
 
 
+}
+
+void MainWindow::on_ajouter_colis_clicked()
+{
+   int code= ui->code_barre->text().toInt();
+   float largeur=ui->largeur->text().toFloat();
+   float longeur=ui->longeur->text().toFloat();
+   float poids=ui->poids->text().toFloat();
+   float hauteur=ui->hauteur->text().toFloat();
+
+colis CA(code,poids,longeur,largeur,hauteur);
+QMessageBox msgBox;
+
+if(CA.veriffloat(CA.gethauteur())==true&&CA.veriffloat(CA.getlongeur())==true&&CA.veriffloat(CA.getlargeur())==true&&CA.veriffloat(CA.getpoids())==true)
+  { bool test=CA.ajouter();
+    if(test==true)
+    {msgBox.setText("Ajout avec succes.");
+          ui->tabcolis->setModel(Cl1.afficher());
+          ui->affectercolis->setModel(CC.afficher_idcolis());
+         msgBox.exec();}
+                 else {
+                     msgBox.setText("Echec d'ajout");
+
+                 }
+
+    }
+   else
+   { msgBox.setText("Echec d'ajout");
+    }
+
+msgBox.exec();
+
+}
+
+void MainWindow::on_tabcolis_activated(const QModelIndex &index)
+{
+    QString val=ui->tabcolis->model()->data(index).toString();
+   colis *CA;
+    CA=Cl1.readColis(val);
+    int code=CA->getcode_barre();
+
+    float largeur=CA->getlargeur();
+    float poids=CA->getpoids();
+    float hauteur=CA->gethauteur();
+    float longeur=CA->getlongeur();
+    QString code_bare_s=QString::number(code);//à revenir
+    QString poids_s=QString::number(poids, 'f', 4);
+     QString longeur_s=QString::number(longeur, 'f', 4);
+      QString largeur_s=QString::number(largeur, 'f', 4);
+       QString hauteur_s=QString::number(hauteur, 'f', 4);
+              ui->code_barre->setText(code_bare_s);
+              ui->longeur->setText(longeur_s);
+              ui->largeur->setText(largeur_s);
+              ui->poids->setText(poids_s);
+              ui->hauteur->setText(hauteur_s);
+
+}
+
+void MainWindow::on_modifier_colis_clicked()
+{
+    int code= ui->code_barre->text().toInt();
+    float largeur=ui->largeur->text().toFloat();
+    float longeur=ui->longeur->text().toFloat();
+    float poids=ui->poids->text().toFloat();
+    float hauteur=ui->hauteur->text().toFloat();
+
+ colis CA(code,poids,longeur,largeur,hauteur);
+ QMessageBox msgBox;
+
+ if(CA.veriffloat(CA.gethauteur())==true&&CA.veriffloat(CA.getlongeur())==true&&CA.veriffloat(CA.getlargeur())==true&&CA.veriffloat(CA.getpoids())==true&&CA.verifierid(code))
+   { bool test=CA.modifier();
+     if(test==true)
+     {msgBox.setText("Modification avec succes.");
+           ui->tabcolis->setModel(Cl1.afficher());
+          msgBox.exec();}
+                  else {
+                      msgBox.setText("Echec de modification");
+
+                  }
+
+     }
+    else
+    { msgBox.setText("Echec de modification ");
+     }
+
+ msgBox.exec();
+}
+
+void MainWindow::on_supprimer_colis_clicked()
+{
+    QMessageBox msgBox;
+    int code=ui->code_barre->text().toUInt();
+    QString numstring=ui->le_num->text();
+    colis C;
+    C.setcode_barre(code);
+   bool test1=C.verifierid(C.getcode_barre());
+   if(test1==true&&C.verifvidestring(ui->code_barre->text()))
+     { C.supprimer(C.getcode_barre());
+       msgBox.setText("Suppression avec succes.");
+
+           ui->tabcolis->setModel(Cl1.afficher());
+
+       }
+       else
+        {msgBox.setText("Echec de suppression");}
+           msgBox.exec();
+}
+
+void MainWindow::on_chercher_colis_2_clicked()
+{
+    int choix;
+       choix=ui->comboBox_colis->currentIndex();
+       QString linechercher=ui->chercher_colis->text();
+        qDebug()<<choix;
+         qDebug()<<linechercher;
+       ui->tabcolis->setModel(Cl1.chercher(choix,linechercher));
+
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    int choix2;
+       choix2=ui->comboBox_tri->currentIndex();
+
+       ui->tabcolis->setModel(Cl1.trierc(choix2));
+}
+
+void MainWindow::on_ajouter_etr_clicked()
+{
+    int ref= ui->ref->text().toInt();
+    int nbs=ui->nsalles->text().toInt();
+    int nbv=ui->nvehicules->text().toInt();
+   QString adresse=ui->adresse->text();
+   QString region=ui->region->text();
+
+ Entrepots E1(ref,region,adresse,nbs,nbv);
+ QMessageBox msgBox;
+
+ if(E1.verifvide(E1.getadresse())==true&&E1.verifvide(E1.getregion())==true)
+   { bool test=E1.ajouter();
+     if(test==true)
+     {msgBox.setText("Ajout avec succes.");
+           ui->tabentrep->setModel(ET1.afficher());
+          msgBox.exec();}
+                  else {
+                      msgBox.setText("Echec d'ajout");
+
+                  }
+
+     }
+    else
+    { msgBox.setText("Echec d'ajout");
+     }
+
+ msgBox.exec();
+
+}
+
+void MainWindow::on_modifier_entr_clicked()
+{
+    int ref= ui->ref->text().toInt();
+    int nbs=ui->nsalles->text().toInt();
+    int nbv=ui->nvehicules->text().toInt();
+   QString adresse=ui->adresse->text();
+   QString region=ui->region->text();
+
+ Entrepots E1(ref,region,adresse,nbs,nbv);
+ QMessageBox msgBox;
+
+ if(E1.verifvide(E1.getadresse())==true&&E1.verifvide(E1.getregion())==true&&E1.verifierref(ref))
+   { bool test=E1.modifier();
+     if(test==true)
+     {msgBox.setText("Modification avec succes.");
+           ui->tabentrep->setModel(ET1.afficher());
+          msgBox.exec();}
+                  else {
+                      msgBox.setText("Echec de modification");
+
+                  }
+
+     }
+    else
+    { msgBox.setText("Echec de modification ");
+     }
+}
+
+void MainWindow::on_supprimer_entro_clicked()
+{
+    QMessageBox msgBox;
+    int ref= ui->ref->text().toInt();
+    QString refs=ui->ref->text();
+    Entrepots E12;
+    E12.setref(ref);
+   bool test1=E12.verifierref(ref);
+   if(test1==true&&E12.verifierref(ref))
+     { E12.supprimer(E12.getref());
+       msgBox.setText("Suppression avec succes.");
+
+         ui->tabentrep->setModel(ET1.afficher());
+
+       }
+       else
+        {msgBox.setText("Echec de suppression");}
+           msgBox.exec();
+
+}
+
+void MainWindow::on_trier_entr_clicked()
+{
+    int choix2;
+       choix2=ui->comboBox_tri22->currentIndex();
+
+       ui->tabentrep->setModel(ET1.trierc(choix2));
+}
+
+void MainWindow::on_chercher_entr_clicked()
+{
+    int choix;
+       choix=ui->comboBox_entro->currentIndex();
+       QString linechercher=ui->lineEditentre->text();
+        qDebug()<<choix;
+         qDebug()<<linechercher;
+       ui->tabentrep->setModel(ET1.chercher(choix,linechercher));
+}
+
+void MainWindow::on_tabentrep_activated(const QModelIndex &index)
+{
+    QString val=ui->tabentrep->model()->data(index).toString();
+  Entrepots *CA;
+    CA=ET1.readEntrepots(val);
+    int ref=CA->getref();
+
+    int nsalles=CA->getnsalles();
+   int nvehicules=CA->getnvehicules();
+    QString nsalles_s=QString::number(nsalles);
+      QString nv_s=QString::number(nvehicules);
+        QString ref_s=QString::number(ref);
+              ui->ref->setText(ref_s);
+              ui->nsalles->setText(nsalles_s);
+              ui->nvehicules->setText(nv_s);
+              ui->adresse->setText(CA->getadresse());
+              ui->region->setText(CA->getregion());
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    EnvoyerMail E;
+    E.setModal(true);
+    E.exec();
 }
