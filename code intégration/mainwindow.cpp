@@ -121,13 +121,7 @@ void MainWindow::update_label()
 {
     data=A.read_from_arduino();
 
-    if(data=="1")
-    {numdesv++;
-     numplace--;
-    QString numv_string=QString::number(numdesv);
-    QString nump_string=QString::number(numplace);
-       ui->le_ve_2->setText(numv_string);
-      ui->le_pd_2->setText(nump_string);}// si les données reçues de arduino via la liaison série sont égales à 1*/
+    // si les données reçues de arduino via la liaison série sont égales à 1*/
 }
 void MainWindow::on_Commande_clicked()
 {
@@ -863,6 +857,13 @@ void MainWindow::update_rfid()
 {
     data = A.read_from_arduino();
     int i;
+    if(data=="8")
+    {numdesv++;
+     numplace--;
+    QString numv_string=QString::number(numdesv);
+    QString nump_string=QString::number(numplace);
+       ui->le_ve_2->setText(numv_string);
+      ui->le_pd_2->setText(nump_string);}
         for(i=0; i<=5; i++)
        { if(data=="1")
         {
