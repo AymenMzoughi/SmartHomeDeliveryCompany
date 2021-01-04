@@ -59,7 +59,7 @@ font: 11pt &quot;Junior Prince&quot;;
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>100</x>
+         <x>120</x>
          <y>250</y>
          <width>311</width>
          <height>41</height>
@@ -90,8 +90,8 @@ font: 11pt &quot;Junior Prince&quot;;
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>80</y>
+         <x>110</x>
+         <y>150</y>
          <width>111</width>
          <height>34</height>
         </rect>
@@ -112,8 +112,8 @@ font: 11pt &quot;Junior Prince&quot;;
       <widget class="QLineEdit" name="le_username">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>40</y>
+         <x>240</x>
+         <y>100</y>
          <width>181</width>
          <height>31</height>
         </rect>
@@ -126,8 +126,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLineEdit" name="le_password">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>90</y>
+         <x>240</x>
+         <y>150</y>
          <width>181</width>
          <height>31</height>
         </rect>
@@ -143,10 +143,10 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pb_login">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>20</y>
-         <width>186</width>
-         <height>46</height>
+         <x>130</x>
+         <y>200</y>
+         <width>135</width>
+         <height>40</height>
         </rect>
        </property>
        <property name="font">
@@ -168,8 +168,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>40</x>
-         <y>30</y>
+         <x>130</x>
+         <y>100</y>
          <width>76</width>
          <height>34</height>
         </rect>
@@ -190,10 +190,10 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="pb_clear">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>70</y>
-         <width>186</width>
-         <height>46</height>
+         <x>290</x>
+         <y>200</y>
+         <width>135</width>
+         <height>40</height>
         </rect>
        </property>
        <property name="font">
@@ -220,6 +220,9 @@ color: rgb(255, 255, 255);</string>
          <width>581</width>
          <height>311</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -316,7 +319,7 @@ color: rgb(255, 255, 255);</string>
        <rect>
         <x>240</x>
         <y>120</y>
-        <width>1481</width>
+        <width>1500</width>
         <height>1000</height>
        </rect>
       </property>
@@ -324,7 +327,7 @@ color: rgb(255, 255, 255);</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="pcommande">
        <widget class="QGroupBox" name="commande">
@@ -364,7 +367,7 @@ color: rgb(255, 255, 255);</string>
           <string notr="true">font: 8pt &quot;Junior Prince&quot;;</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -1080,7 +1083,7 @@ font: 8pt &quot;Junior Prince&quot;;
 </string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_5">
           <attribute name="title">
@@ -2047,10 +2050,10 @@ font: 11pt &quot;Junior Prince&quot;;
        <widget class="QGroupBox" name="client">
         <property name="geometry">
          <rect>
-          <x>-10</x>
+          <x>0</x>
           <y>0</y>
-          <width>791</width>
-          <height>571</height>
+          <width>1500</width>
+          <height>1000</height>
          </rect>
         </property>
         <property name="font">
@@ -2071,14 +2074,14 @@ font: 11pt &quot;Junior Prince&quot;;
         <widget class="QTabWidget" name="tabWidget_3">
          <property name="geometry">
           <rect>
-           <x>10</x>
-           <y>20</y>
-           <width>781</width>
-           <height>551</height>
+           <x>0</x>
+           <y>15</y>
+           <width>1411</width>
+           <height>858</height>
           </rect>
          </property>
          <property name="styleSheet">
-          <string notr="true">backgound-color:transparent;</string>
+          <string notr="true"/>
          </property>
          <property name="currentIndex">
           <number>1</number>
@@ -2092,12 +2095,12 @@ font: 11pt &quot;Junior Prince&quot;;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>771</width>
-             <height>521</height>
+             <width>1411</width>
+             <height>858</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color:rgb(226, 226, 226);</string>
+            <string notr="true"/>
            </property>
            <property name="title">
             <string/>
@@ -2105,16 +2108,16 @@ font: 11pt &quot;Junior Prince&quot;;
            <widget class="QLineEdit" name="lineEdit_3">
             <property name="geometry">
              <rect>
-              <x>340</x>
-              <y>240</y>
-              <width>141</width>
-              <height>41</height>
+              <x>1230</x>
+              <y>100</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2123,20 +2126,10 @@ font: 11pt &quot;Junior Prince&quot;;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Afficher.png);</string>
             </property>
             <property name="text">
-             <string>Affichage des clients</string>
+             <string/>
             </property>
             <property name="readOnly">
              <bool>true</bool>
@@ -2145,46 +2138,9 @@ font-family:calibri;
            <widget class="QPushButton" name="pb_envoyermail_client">
             <property name="geometry">
              <rect>
-              <x>590</x>
-              <y>130</y>
+              <x>1030</x>
+              <y>470</y>
               <width>151</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <underline>false</underline>
-              <strikeout>false</strikeout>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-            <property name="text">
-             <string>Enoyer un Mail </string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_7">
-            <property name="geometry">
-             <rect>
-              <x>520</x>
-              <y>180</y>
-              <width>101</width>
               <height>41</height>
              </rect>
             </property>
@@ -2195,19 +2151,24 @@ font-family:calibri;
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/envoyermail.png);</string>
+            </property>
             <property name="text">
-             <string>Recherche par :</string>
+             <string/>
             </property>
            </widget>
            <widget class="QPushButton" name="pushButton_11">
             <property name="geometry">
              <rect>
-              <x>300</x>
-              <y>450</y>
-              <width>101</width>
-              <height>41</height>
+              <x>630</x>
+              <y>760</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
@@ -2245,16 +2206,16 @@ font-family:calibri;
            <widget class="QPushButton" name="pb_ajout_client">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>170</y>
-              <width>91</width>
-              <height>41</height>
+              <x>360</x>
+              <y>620</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2267,65 +2228,23 @@ font-family:calibri;
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Ajouter.png);</string>
             </property>
             <property name="text">
-             <string>Ajouter</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_9">
-            <property name="geometry">
-             <rect>
-              <x>260</x>
-              <y>21</y>
-              <width>61</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>adresse :</string>
+             <string/>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_pays_client">
             <property name="geometry">
              <rect>
-              <x>110</x>
-              <y>121</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>340</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="text">
              <string/>
@@ -2337,24 +2256,14 @@ font-family:calibri;
            <widget class="QLineEdit" name="le_ref_client">
             <property name="geometry">
              <rect>
-              <x>110</x>
-              <y>21</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>220</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="readOnly">
              <bool>false</bool>
@@ -2363,24 +2272,14 @@ font-family:calibri;
            <widget class="QLineEdit" name="le_telephone_client">
             <property name="geometry">
              <rect>
-              <x>360</x>
-              <y>111</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>550</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="text">
              <string/>
@@ -2389,71 +2288,17 @@ font-family:calibri;
              <bool>false</bool>
             </property>
            </widget>
-           <widget class="QLabel" name="label_11">
-            <property name="geometry">
-             <rect>
-              <x>260</x>
-              <y>121</y>
-              <width>101</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>N° de téléphone :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_12">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>31</y>
-              <width>71</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Réf client :</string>
-            </property>
-           </widget>
            <widget class="QLineEdit" name="le_nom_client">
             <property name="geometry">
              <rect>
-              <x>110</x>
-              <y>70</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>280</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="readOnly">
              <bool>false</bool>
@@ -2462,24 +2307,14 @@ font-family:calibri;
            <widget class="QLineEdit" name="le_adresse_client">
             <property name="geometry">
              <rect>
-              <x>360</x>
-              <y>11</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>410</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="readOnly">
              <bool>false</bool>
@@ -2488,24 +2323,14 @@ font-family:calibri;
            <widget class="QLineEdit" name="le_Email_client">
             <property name="geometry">
              <rect>
-              <x>360</x>
-              <y>61</y>
-              <width>113</width>
-              <height>41</height>
+              <x>190</x>
+              <y>480</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="text">
              <string/>
@@ -2514,129 +2339,30 @@ font-family:calibri;
              <bool>false</bool>
             </property>
            </widget>
-           <widget class="QLabel" name="label_13">
-            <property name="geometry">
-             <rect>
-              <x>260</x>
-              <y>71</y>
-              <width>47</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>E-mail :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_14">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>81</y>
-              <width>81</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Nom du client :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_15">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>131</y>
-              <width>47</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>ville:</string>
-            </property>
-           </widget>
            <widget class="QTableView" name="tab_client">
             <property name="geometry">
              <rect>
-              <x>130</x>
-              <y>290</y>
-              <width>601</width>
-              <height>121</height>
+              <x>569</x>
+              <y>166</y>
+              <width>820</width>
+              <height>267</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:white;
-border-radius:16px</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_34">
-            <property name="geometry">
-             <rect>
-              <x>430</x>
-              <y>420</y>
-              <width>111</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>trier le tableau :</string>
+             <string notr="true"/>
             </property>
            </widget>
            <widget class="QComboBox" name="comboBox_tri_client">
             <property name="geometry">
              <rect>
-              <x>550</x>
-              <y>420</y>
+              <x>800</x>
+              <y>470</y>
               <width>171</width>
               <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <item>
              <property name="text">
@@ -2662,24 +2388,14 @@ font-family:calibri;
            <widget class="QComboBox" name="cb_rech_client">
             <property name="geometry">
              <rect>
-              <x>630</x>
-              <y>180</y>
-              <width>101</width>
-              <height>41</height>
+              <x>780</x>
+              <y>100</y>
+              <width>151</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <item>
              <property name="text">
@@ -2705,50 +2421,39 @@ font-family:calibri;
            <widget class="QPushButton" name="search_pb">
             <property name="geometry">
              <rect>
-              <x>650</x>
-              <y>230</y>
-              <width>81</width>
-              <height>41</height>
+              <x>1100</x>
+              <y>100</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Rechercher.png);</string>
             </property>
             <property name="text">
-             <string>rechercher</string>
+             <string/>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_amine">
             <property name="geometry">
              <rect>
-              <x>520</x>
-              <y>230</y>
-              <width>113</width>
-              <height>41</height>
+              <x>940</x>
+              <y>100</y>
+              <width>151</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:white;
-border-radius:16px</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QGroupBox" name="groupBox_3">
             <property name="geometry">
              <rect>
-              <x>550</x>
-              <y>10</y>
-              <width>211</width>
-              <height>101</height>
+              <x>560</x>
+              <y>580</y>
+              <width>321</width>
+              <height>131</height>
              </rect>
             </property>
             <property name="styleSheet">
@@ -2765,87 +2470,13 @@ font-family:calibri;
   border-radius : 16px;</string>
             </property>
             <property name="title">
-             <string>music</string>
+             <string>Music</string>
             </property>
-            <widget class="QPushButton" name="pause">
-             <property name="geometry">
-              <rect>
-               <x>120</x>
-               <y>50</y>
-               <width>71</width>
-               <height>41</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>calibri</family>
-               <pointsize>-1</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-               <underline>false</underline>
-               <strikeout>false</strikeout>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-             </property>
-             <property name="text">
-              <string>arrêter</string>
-             </property>
-            </widget>
-            <widget class="QPushButton" name="start">
-             <property name="geometry">
-              <rect>
-               <x>24</x>
-               <y>50</y>
-               <width>91</width>
-               <height>41</height>
-              </rect>
-             </property>
-             <property name="font">
-              <font>
-               <family>calibri</family>
-               <pointsize>-1</pointsize>
-               <weight>50</weight>
-               <italic>false</italic>
-               <bold>false</bold>
-               <underline>false</underline>
-               <strikeout>false</strikeout>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-             </property>
-             <property name="text">
-              <string>commencer</string>
-             </property>
-            </widget>
             <widget class="QLabel" name="label_36">
              <property name="geometry">
               <rect>
-               <x>0</x>
-               <y>22</y>
+               <x>40</x>
+               <y>40</y>
                <width>111</width>
                <height>21</height>
               </rect>
@@ -2862,7 +2493,7 @@ font-family:calibri;
               </font>
              </property>
              <property name="text">
-              <string>volume:</string>
+              <string>Volume:</string>
              </property>
             </widget>
             <widget class="QSlider" name="slider_volume">
@@ -2871,8 +2502,8 @@ font-family:calibri;
              </property>
              <property name="geometry">
               <rect>
-               <x>100</x>
-               <y>22</y>
+               <x>140</x>
+               <y>40</y>
                <width>91</width>
                <height>22</height>
               </rect>
@@ -2884,68 +2515,87 @@ font-family:calibri;
               <enum>Qt::Horizontal</enum>
              </property>
             </widget>
+            <widget class="QPushButton" name="start">
+             <property name="geometry">
+              <rect>
+               <x>40</x>
+               <y>80</y>
+               <width>120</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>calibri</family>
+               <pointsize>-1</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border-image: url(:/img/img/Commencer.png);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+            <widget class="QPushButton" name="pause">
+             <property name="geometry">
+              <rect>
+               <x>160</x>
+               <y>80</y>
+               <width>120</width>
+               <height>38</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>calibri</family>
+               <pointsize>-1</pointsize>
+               <weight>50</weight>
+               <italic>false</italic>
+               <bold>false</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border-image: url(:/img/img/Arreter.png);</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
            </widget>
            <widget class="QComboBox" name="cb_reff_modif">
             <property name="geometry">
              <rect>
-              <x>110</x>
-              <y>210</y>
-              <width>101</width>
-              <height>41</height>
+              <x>140</x>
+              <y>695</y>
+              <width>117</width>
+              <height>35</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
-           <widget class="QLabel" name="label_16">
+           <widget class="QPushButton" name="pb_modif_client">
             <property name="geometry">
              <rect>
-              <x>220</x>
-              <y>220</y>
-              <width>71</width>
-              <height>31</height>
+              <x>360</x>
+              <y>660</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
               <family>Junior Prince</family>
               <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color:transparent;</string>
-            </property>
-            <property name="text">
-             <string>Réf client </string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pb_modif_client">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>210</y>
-              <width>91</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2958,35 +2608,25 @@ font-family:calibri;
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Modifier.png);</string>
             </property>
             <property name="text">
-             <string>modifier</string>
+             <string/>
             </property>
            </widget>
            <widget class="QPushButton" name="pb_supprimer_client">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>250</y>
-              <width>91</width>
-              <height>41</height>
+              <x>360</x>
+              <y>700</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2995,22 +2635,48 @@ font-family:calibri;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Supprimer.png);</string>
             </property>
             <property name="text">
-             <string>supprimer</string>
+             <string/>
             </property>
            </widget>
+           <widget class="QLabel" name="photoCli">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1411</width>
+              <height>858</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <zorder>photoCli</zorder>
+           <zorder>lineEdit_3</zorder>
+           <zorder>pb_envoyermail_client</zorder>
+           <zorder>pushButton_11</zorder>
+           <zorder>pb_ajout_client</zorder>
+           <zorder>le_pays_client</zorder>
+           <zorder>le_ref_client</zorder>
+           <zorder>le_telephone_client</zorder>
+           <zorder>le_nom_client</zorder>
+           <zorder>le_adresse_client</zorder>
+           <zorder>le_Email_client</zorder>
+           <zorder>tab_client</zorder>
+           <zorder>comboBox_tri_client</zorder>
+           <zorder>cb_rech_client</zorder>
+           <zorder>search_pb</zorder>
+           <zorder>le_amine</zorder>
+           <zorder>groupBox_3</zorder>
+           <zorder>cb_reff_modif</zorder>
+           <zorder>pb_modif_client</zorder>
+           <zorder>pb_supprimer_client</zorder>
           </widget>
          </widget>
          <widget class="QWidget" name="gestion_cf">
@@ -3022,12 +2688,12 @@ font-family:calibri;
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>781</width>
-             <height>551</height>
+             <width>1411</width>
+             <height>858</height>
             </rect>
            </property>
            <property name="styleSheet">
-            <string notr="true">background-color:rgb(226, 226, 226);</string>
+            <string notr="true"/>
            </property>
            <property name="title">
             <string/>
@@ -3035,50 +2701,10 @@ font-family:calibri;
            <widget class="QLineEdit" name="lineEdit_17">
             <property name="geometry">
              <rect>
-              <x>290</x>
-              <y>280</y>
-              <width>261</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <underline>false</underline>
-              <strikeout>false</strikeout>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-            <property name="text">
-             <string>Affichage du tableau des cartes de fidélité</string>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_18">
-            <property name="geometry">
-             <rect>
-              <x>30</x>
-              <y>150</y>
-              <width>111</width>
-              <height>41</height>
+              <x>910</x>
+              <y>110</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
@@ -3088,44 +2714,40 @@ font-family:calibri;
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
+              <underline>false</underline>
               <strikeout>false</strikeout>
-              <kerning>true</kerning>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/Afficher.png);</string>
+            </property>
             <property name="text">
-             <string>Recherche par:</string>
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_rech_cf">
             <property name="geometry">
              <rect>
-              <x>40</x>
-              <y>190</y>
-              <width>91</width>
-              <height>41</height>
+              <x>870</x>
+              <y>464</y>
+              <width>141</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QPushButton" name="pushButton_12">
             <property name="geometry">
              <rect>
-              <x>280</x>
-              <y>480</y>
-              <width>91</width>
-              <height>41</height>
+              <x>630</x>
+              <y>760</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
@@ -3163,16 +2785,16 @@ font-family:calibri;
            <widget class="QPushButton" name="pb_ajout_cf">
             <property name="geometry">
              <rect>
-              <x>620</x>
-              <y>100</y>
-              <width>101</width>
-              <height>41</height>
+              <x>130</x>
+              <y>610</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3185,278 +2807,49 @@ font-family:calibri;
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Ajouter.png);</string>
             </property>
             <property name="text">
-             <string>Ajouter</string>
-            </property>
-           </widget>
-           <widget class="QDateEdit" name="le_date_em">
-            <property name="geometry">
-             <rect>
-              <x>179</x>
-              <y>51</y>
-              <width>121</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-            <property name="dateTime">
-             <datetime>
-              <hour>0</hour>
-              <minute>0</minute>
-              <second>0</second>
-              <year>2018</year>
-              <month>3</month>
-              <day>25</day>
-             </datetime>
-            </property>
-            <property name="calendarPopup">
-             <bool>false</bool>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_23">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>110</y>
-              <width>111</width>
-              <height>21</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>Date d'expiration :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_21">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>60</y>
-              <width>91</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>Date d'émission :</string>
+             <string/>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_num_cf">
             <property name="geometry">
              <rect>
-              <x>180</x>
-              <y>10</y>
-              <width>121</width>
-              <height>41</height>
+              <x>260</x>
+              <y>220</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-           </widget>
-           <widget class="QDateEdit" name="le_date_ex">
-            <property name="geometry">
-             <rect>
-              <x>179</x>
-              <y>100</y>
-              <width>121</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-            <property name="dateTime">
-             <datetime>
-              <hour>0</hour>
-              <minute>0</minute>
-              <second>0</second>
-              <year>2019</year>
-              <month>3</month>
-              <day>25</day>
-             </datetime>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_20">
-            <property name="geometry">
-             <rect>
-              <x>330</x>
-              <y>60</y>
-              <width>141</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>chéque-cadeau à éditer :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_22">
-            <property name="geometry">
-             <rect>
-              <x>330</x>
-              <y>20</y>
-              <width>101</width>
-              <height>16</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>points accumulés :</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_cheque_cf">
             <property name="geometry">
              <rect>
-              <x>480</x>
-              <y>50</y>
-              <width>113</width>
-              <height>41</height>
+              <x>260</x>
+              <y>480</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_19">
-            <property name="geometry">
-             <rect>
-              <x>60</x>
-              <y>20</y>
-              <width>71</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>Numéro :</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QLineEdit" name="le_points_cf">
             <property name="geometry">
              <rect>
-              <x>480</x>
-              <y>10</y>
-              <width>113</width>
-              <height>41</height>
+              <x>260</x>
+              <y>410</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: white	;
-  border: none;
-  color: black;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <property name="text">
              <string/>
@@ -3465,30 +2858,29 @@ font-family:calibri;
            <widget class="QTableView" name="tab_cf">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>331</y>
-              <width>611</width>
-              <height>111</height>
+              <x>569</x>
+              <y>166</y>
+              <width>820</width>
+              <height>267</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:white;
-border-radius:16px</string>
+             <string notr="true"/>
             </property>
            </widget>
            <widget class="QComboBox" name="comboBox_tri_cf">
             <property name="geometry">
              <rect>
-              <x>570</x>
-              <y>450</y>
+              <x>1190</x>
+              <y>460</y>
               <width>171</width>
               <height>41</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3497,17 +2889,7 @@ border-radius:16px</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <item>
              <property name="text">
@@ -3545,67 +2927,19 @@ font-family:calibri;
              </property>
             </item>
            </widget>
-           <widget class="QLabel" name="label_33">
-            <property name="geometry">
-             <rect>
-              <x>450</x>
-              <y>450</y>
-              <width>111</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>trier le tableau :</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_38">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>240</y>
-              <width>211</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <strikeout>false</strikeout>
-              <kerning>true</kerning>
-             </font>
-            </property>
-            <property name="text">
-             <string>Recherche par date d'émission:</string>
-            </property>
-           </widget>
            <widget class="QPushButton" name="pb_rech_cf_2">
             <property name="geometry">
              <rect>
-              <x>160</x>
-              <y>280</y>
-              <width>91</width>
-              <height>41</height>
+              <x>930</x>
+              <y>630</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3614,58 +2948,25 @@ font-family:calibri;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Rechercher.png);</string>
             </property>
             <property name="text">
-             <string>chercher</string>
-            </property>
-           </widget>
-           <widget class="QDateEdit" name="dateEdit">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>280</y>
-              <width>121</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string/>
             </property>
            </widget>
            <widget class="QComboBox" name="cb_rech_cf">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>150</y>
-              <width>101</width>
-              <height>41</height>
+              <x>710</x>
+              <y>464</y>
+              <width>151</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3674,17 +2975,7 @@ font-family:calibri;
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
             <item>
              <property name="text">
@@ -3705,47 +2996,10 @@ font-family:calibri;
            <widget class="QPushButton" name="pb_rech_cf_3">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>190</y>
-              <width>101</width>
-              <height>41</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <underline>false</underline>
-              <strikeout>false</strikeout>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
-            </property>
-            <property name="text">
-             <string>chercher</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_24">
-            <property name="geometry">
-             <rect>
-              <x>330</x>
-              <y>100</y>
-              <width>131</width>
-              <height>20</height>
+              <x>800</x>
+              <y>520</y>
+              <width>127</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
@@ -3755,58 +3009,37 @@ font-family:calibri;
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
+              <underline>false</underline>
+              <strikeout>false</strikeout>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/Rechercher.png);</string>
+            </property>
             <property name="text">
-             <string>la référence du client:</string>
+             <string/>
             </property>
            </widget>
            <widget class="QComboBox" name="comboBox_refer_cf">
             <property name="geometry">
              <rect>
-              <x>480</x>
-              <y>90</y>
-              <width>111</width>
-              <height>41</height>
+              <x>260</x>
+              <y>540</y>
+              <width>127</width>
+              <height>27</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:white;
-border-radius:16px</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_32">
-            <property name="geometry">
-             <rect>
-              <x>370</x>
-              <y>210</y>
-              <width>71</width>
-              <height>20</height>
-             </rect>
-            </property>
-            <property name="font">
-             <font>
-              <family>Junior Prince</family>
-              <pointsize>11</pointsize>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color:transparent;</string>
-            </property>
-            <property name="text">
-             <string>numéro:</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QComboBox" name="cb_num_supp">
             <property name="geometry">
              <rect>
-              <x>470</x>
-              <y>200</y>
-              <width>121</width>
-              <height>41</height>
+              <x>120</x>
+              <y>760</y>
+              <width>151</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
@@ -3819,23 +3052,22 @@ border-radius:16px</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color:white;
-border-radius:16px</string>
+             <string notr="true">border-image: url(:/img/img/LD.png);</string>
             </property>
            </widget>
            <widget class="QPushButton" name="pb_supp_cf">
             <property name="geometry">
              <rect>
-              <x>620</x>
-              <y>200</y>
-              <width>101</width>
-              <height>41</height>
+              <x>280</x>
+              <y>760</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3844,35 +3076,25 @@ border-radius:16px</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Supprimer.png);</string>
             </property>
             <property name="text">
-             <string>supprimer</string>
+             <string/>
             </property>
            </widget>
            <widget class="QPushButton" name="pb_modifier_cf">
             <property name="geometry">
              <rect>
-              <x>620</x>
-              <y>150</y>
-              <width>101</width>
-              <height>41</height>
+              <x>260</x>
+              <y>610</y>
+              <width>120</width>
+              <height>38</height>
              </rect>
             </property>
             <property name="font">
              <font>
-              <family>calibri</family>
-              <pointsize>-1</pointsize>
+              <family>Junior Prince</family>
+              <pointsize>11</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3885,22 +3107,111 @@ font-family:calibri;
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: black	;
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-font-family:calibri;
-  display: inline-block;
-  font-size: 13px;
-  margin: 2px 1px;
-  border-radius : 16px;</string>
+             <string notr="true">border-image: url(:/img/img/Modifier.png);</string>
             </property>
             <property name="text">
-             <string>modifier</string>
+             <string/>
             </property>
            </widget>
+           <widget class="QDateEdit" name="le_date_em">
+            <property name="geometry">
+             <rect>
+              <x>260</x>
+              <y>280</y>
+              <width>127</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/LD.png);
+font: 8pt &quot;Junior Prince&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="displayFormat">
+             <string>dd/MM/yy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QDateEdit" name="le_date_ex">
+            <property name="geometry">
+             <rect>
+              <x>260</x>
+              <y>340</y>
+              <width>127</width>
+              <height>27</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/LD.png);
+font: 8pt &quot;Junior Prince&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="displayFormat">
+             <string>dd/MM/yy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QDateEdit" name="dateEdit">
+            <property name="geometry">
+             <rect>
+              <x>790</x>
+              <y>630</y>
+              <width>127</width>
+              <height>38</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border-image: url(:/img/img/LD.png);
+font: 8pt &quot;Junior Prince&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="displayFormat">
+             <string>dd/MM/yy</string>
+            </property>
+            <property name="calendarPopup">
+             <bool>true</bool>
+            </property>
+           </widget>
+           <widget class="QLabel" name="photoFid">
+            <property name="geometry">
+             <rect>
+              <x>0</x>
+              <y>0</y>
+              <width>1411</width>
+              <height>858</height>
+             </rect>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+           <zorder>photoFid</zorder>
+           <zorder>lineEdit_17</zorder>
+           <zorder>le_rech_cf</zorder>
+           <zorder>pushButton_12</zorder>
+           <zorder>pb_ajout_cf</zorder>
+           <zorder>le_num_cf</zorder>
+           <zorder>le_cheque_cf</zorder>
+           <zorder>le_points_cf</zorder>
+           <zorder>tab_cf</zorder>
+           <zorder>comboBox_tri_cf</zorder>
+           <zorder>pb_rech_cf_2</zorder>
+           <zorder>cb_rech_cf</zorder>
+           <zorder>pb_rech_cf_3</zorder>
+           <zorder>comboBox_refer_cf</zorder>
+           <zorder>cb_num_supp</zorder>
+           <zorder>pb_supp_cf</zorder>
+           <zorder>pb_modifier_cf</zorder>
+           <zorder>le_date_em</zorder>
+           <zorder>le_date_ex</zorder>
+           <zorder>dateEdit</zorder>
           </widget>
          </widget>
         </widget>
@@ -3910,10 +3221,10 @@ font-family:calibri;
        <widget class="QGroupBox" name="stock">
         <property name="geometry">
          <rect>
-          <x>30</x>
-          <y>30</y>
-          <width>1071</width>
-          <height>651</height>
+          <x>0</x>
+          <y>0</y>
+          <width>1500</width>
+          <height>1000</height>
          </rect>
         </property>
         <property name="font">
@@ -3934,188 +3245,18 @@ font-family:calibri;
         <widget class="QTabWidget" name="tabWidget_4">
          <property name="geometry">
           <rect>
-           <x>20</x>
-           <y>40</y>
-           <width>1041</width>
-           <height>571</height>
+           <x>0</x>
+           <y>17</y>
+           <width>1411</width>
+           <height>858</height>
           </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="currentIndex">
           <number>0</number>
          </property>
-         <widget class="QWidget" name="tab_3">
-          <attribute name="title">
-           <string>entrepots</string>
-          </attribute>
-          <widget class="QPushButton" name="ajouter_etr">
-           <property name="geometry">
-            <rect>
-             <x>160</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Ajouter</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="modifier_entr">
-           <property name="geometry">
-            <rect>
-             <x>330</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Modifier</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="supprimer_entro">
-           <property name="geometry">
-            <rect>
-             <x>460</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>supprimer</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="trier_entr">
-           <property name="geometry">
-            <rect>
-             <x>790</x>
-             <y>320</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>trier</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="chercher_entr">
-           <property name="geometry">
-            <rect>
-             <x>750</x>
-             <y>30</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>chercher</string>
-           </property>
-          </widget>
-          <widget class="QTableView" name="tabentrep">
-           <property name="geometry">
-            <rect>
-             <x>440</x>
-             <y>90</y>
-             <width>521</width>
-             <height>192</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="ref">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>70</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="adresse">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>110</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="region">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>150</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="nsalles">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>190</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="nvehicules">
-           <property name="geometry">
-            <rect>
-             <x>180</x>
-             <y>230</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QComboBox" name="comboBox_entro">
-           <property name="geometry">
-            <rect>
-             <x>450</x>
-             <y>30</y>
-             <width>73</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QLineEdit" name="lineEditentre">
-           <property name="geometry">
-            <rect>
-             <x>570</x>
-             <y>30</y>
-             <width>113</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QComboBox" name="comboBox_tri22">
-           <property name="geometry">
-            <rect>
-             <x>542</x>
-             <y>320</y>
-             <width>151</width>
-             <height>22</height>
-            </rect>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton_3">
-           <property name="geometry">
-            <rect>
-             <x>710</x>
-             <y>400</y>
-             <width>93</width>
-             <height>28</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Enovyer</string>
-           </property>
-          </widget>
-         </widget>
          <widget class="QWidget" name="tab_4">
           <attribute name="title">
            <string>colis</string>
@@ -4126,158 +3267,477 @@ font-family:calibri;
            </property>
            <property name="geometry">
             <rect>
-             <x>190</x>
-             <y>60</y>
-             <width>113</width>
-             <height>22</height>
+             <x>225</x>
+             <y>212</y>
+             <width>127</width>
+             <height>27</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="longeur">
            <property name="geometry">
             <rect>
-             <x>190</x>
-             <y>130</y>
-             <width>113</width>
-             <height>22</height>
+             <x>225</x>
+             <y>276</y>
+             <width>127</width>
+             <height>27</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="largeur">
            <property name="geometry">
             <rect>
-             <x>190</x>
-             <y>200</y>
-             <width>113</width>
-             <height>22</height>
+             <x>225</x>
+             <y>338</y>
+             <width>127</width>
+             <height>27</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="poids">
            <property name="geometry">
             <rect>
-             <x>190</x>
-             <y>300</y>
-             <width>113</width>
-             <height>22</height>
+             <x>225</x>
+             <y>462</y>
+             <width>127</width>
+             <height>27</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QLineEdit" name="hauteur">
            <property name="geometry">
             <rect>
-             <x>190</x>
-             <y>250</y>
-             <width>113</width>
-             <height>22</height>
+             <x>225</x>
+             <y>402</y>
+             <width>127</width>
+             <height>27</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QPushButton" name="supprimer_colis">
            <property name="geometry">
             <rect>
-             <x>480</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
+             <x>370</x>
+             <y>620</y>
+             <width>120</width>
+             <height>38</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Supprimer.png);</string>
+           </property>
            <property name="text">
-            <string>supprimer</string>
+            <string/>
            </property>
           </widget>
           <widget class="QPushButton" name="modifier_colis">
            <property name="geometry">
             <rect>
-             <x>360</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
+             <x>230</x>
+             <y>620</y>
+             <width>120</width>
+             <height>38</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Modifier.png);</string>
+           </property>
            <property name="text">
-            <string>modifier</string>
+            <string/>
            </property>
           </widget>
           <widget class="QPushButton" name="ajouter_colis">
            <property name="geometry">
             <rect>
-             <x>240</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
+             <x>100</x>
+             <y>620</y>
+             <width>120</width>
+             <height>38</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Ajouter.png);</string>
+           </property>
            <property name="text">
-            <string>ajouter</string>
+            <string/>
            </property>
           </widget>
           <widget class="QTableView" name="tabcolis">
            <property name="geometry">
             <rect>
-             <x>380</x>
-             <y>100</y>
-             <width>521</width>
-             <height>241</height>
+             <x>568</x>
+             <y>106</y>
+             <width>823</width>
+             <height>419</height>
             </rect>
            </property>
           </widget>
           <widget class="QLineEdit" name="chercher_colis">
            <property name="geometry">
             <rect>
-             <x>550</x>
-             <y>30</y>
-             <width>113</width>
-             <height>22</height>
+             <x>1010</x>
+             <y>50</y>
+             <width>140</width>
+             <height>38</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QPushButton" name="chercher_colis_2">
            <property name="geometry">
             <rect>
-             <x>730</x>
-             <y>30</y>
-             <width>93</width>
-             <height>28</height>
+             <x>1160</x>
+             <y>50</y>
+             <width>120</width>
+             <height>38</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Rechercher.png);</string>
+           </property>
            <property name="text">
-            <string>chercher</string>
+            <string/>
            </property>
           </widget>
           <widget class="QComboBox" name="comboBox_colis">
            <property name="geometry">
             <rect>
-             <x>410</x>
-             <y>30</y>
-             <width>73</width>
-             <height>22</height>
+             <x>870</x>
+             <y>50</y>
+             <width>127</width>
+             <height>38</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QComboBox" name="comboBox_tri">
            <property name="geometry">
             <rect>
-             <x>660</x>
-             <y>390</y>
-             <width>73</width>
-             <height>22</height>
+             <x>860</x>
+             <y>550</y>
+             <width>127</width>
+             <height>38</height>
             </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
            </property>
           </widget>
           <widget class="QPushButton" name="pushButton_2">
            <property name="geometry">
             <rect>
-             <x>790</x>
-             <y>390</y>
-             <width>93</width>
-             <height>28</height>
+             <x>1000</x>
+             <y>550</y>
+             <width>120</width>
+             <height>38</height>
             </rect>
            </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Trier.png);</string>
+           </property>
            <property name="text">
-            <string>trier</string>
+            <string/>
            </property>
           </widget>
+          <widget class="QLabel" name="photoColis">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1411</width>
+             <height>858</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 8pt &quot;Junior Prince&quot;;
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>photoColis</zorder>
+          <zorder>code_barre</zorder>
+          <zorder>longeur</zorder>
+          <zorder>largeur</zorder>
+          <zorder>poids</zorder>
+          <zorder>hauteur</zorder>
+          <zorder>supprimer_colis</zorder>
+          <zorder>modifier_colis</zorder>
+          <zorder>ajouter_colis</zorder>
+          <zorder>tabcolis</zorder>
+          <zorder>chercher_colis</zorder>
+          <zorder>chercher_colis_2</zorder>
+          <zorder>comboBox_colis</zorder>
+          <zorder>comboBox_tri</zorder>
+          <zorder>pushButton_2</zorder>
+         </widget>
+         <widget class="QWidget" name="tab_3">
+          <attribute name="title">
+           <string>entrepots</string>
+          </attribute>
+          <widget class="QPushButton" name="ajouter_etr">
+           <property name="geometry">
+            <rect>
+             <x>140</x>
+             <y>600</y>
+             <width>120</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Ajouter.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="modifier_entr">
+           <property name="geometry">
+            <rect>
+             <x>290</x>
+             <y>600</y>
+             <width>120</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Modifier.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="supprimer_entro">
+           <property name="geometry">
+            <rect>
+             <x>440</x>
+             <y>600</y>
+             <width>120</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Supprimer.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="trier_entr">
+           <property name="geometry">
+            <rect>
+             <x>900</x>
+             <y>550</y>
+             <width>120</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Trier.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="chercher_entr">
+           <property name="geometry">
+            <rect>
+             <x>1120</x>
+             <y>40</y>
+             <width>120</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/Rechercher.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QTableView" name="tabentrep">
+           <property name="geometry">
+            <rect>
+             <x>568</x>
+             <y>105</y>
+             <width>822</width>
+             <height>421</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="ref">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>219</y>
+             <width>127</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="adresse">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>287</y>
+             <width>127</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="region">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>350</y>
+             <width>127</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="nsalles">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>412</y>
+             <width>127</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="nvehicules">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>475</y>
+             <width>127</width>
+             <height>27</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_entro">
+           <property name="geometry">
+            <rect>
+             <x>780</x>
+             <y>40</y>
+             <width>127</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="lineEditentre">
+           <property name="geometry">
+            <rect>
+             <x>950</x>
+             <y>40</y>
+             <width>127</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QComboBox" name="comboBox_tri22">
+           <property name="geometry">
+            <rect>
+             <x>720</x>
+             <y>550</y>
+             <width>151</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/LD.png);</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="geometry">
+            <rect>
+             <x>810</x>
+             <y>620</y>
+             <width>141</width>
+             <height>38</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">border-image: url(:/img/img/envoyermail.png);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="photoEntr">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>1411</width>
+             <height>858</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 8pt &quot;Junior Prince&quot;;
+color: rgb(255, 255, 255);</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <zorder>photoEntr</zorder>
+          <zorder>ajouter_etr</zorder>
+          <zorder>modifier_entr</zorder>
+          <zorder>supprimer_entro</zorder>
+          <zorder>trier_entr</zorder>
+          <zorder>chercher_entr</zorder>
+          <zorder>tabentrep</zorder>
+          <zorder>ref</zorder>
+          <zorder>adresse</zorder>
+          <zorder>region</zorder>
+          <zorder>nsalles</zorder>
+          <zorder>nvehicules</zorder>
+          <zorder>comboBox_entro</zorder>
+          <zorder>lineEditentre</zorder>
+          <zorder>comboBox_tri22</zorder>
+          <zorder>pushButton_3</zorder>
          </widget>
         </widget>
        </widget>
@@ -4387,7 +3847,7 @@ font-family:calibri;
       <property name="geometry">
        <rect>
         <x>250</x>
-        <y>10</y>
+        <y>0</y>
         <width>451</width>
         <height>121</height>
        </rect>
@@ -4532,7 +3992,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>2059</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

@@ -25,19 +25,28 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
    ui->stackedWidget1->setCurrentIndex(0);
    //ui->stackedwidget_rfid->setCurrentIndex(0);
-   QPixmap pix("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
+   QPixmap pix("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
    ui->photoEm->setPixmap(pix);
-   QPixmap pix2("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
+   QPixmap pix2("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
    ui->photoCong_2->setPixmap(pix2);
-   QPixmap pix3("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
+   QPixmap pix3("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
    ui->photoCmd->setPixmap(pix3);
-   QPixmap pix4("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
+   QPixmap pix4("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
    ui->photoVeh->setPixmap(pix4);
 
-   QPixmap pix5("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
+   QPixmap pix5("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
    ui->loginp->setPixmap(pix5);
-   QPixmap pix6("D:/2eme/Projet/code_31/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
+   QPixmap pix6("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
    ui->pa->setPixmap(pix6);
+
+   QPixmap pix7("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Clients.png");
+   ui->photoCli->setPixmap(pix7);
+   QPixmap pix8("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Carte Fid.png");
+   ui->photoFid->setPixmap(pix8);
+   QPixmap pix9("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Colis.png");
+   ui->photoColis->setPixmap(pix9);
+   QPixmap pix10("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/entrepots.png");
+   ui->photoEntr->setPixmap(pix10);
     //******************************amine******************************//
    ui->le_telephone_client->setValidator(new QIntValidator(10000000, 99999999, this));
 
@@ -474,9 +483,10 @@ void MainWindow::on_modifier_2_clicked()
     QString adr=ui->le_adr_2->text();
     QString mail=ui->le_mail_2->text();
     Employe E1 (idemp,nom,prenom,dns,numtel,adr,mail);
-     bool test=E1.verifid(idemp);
-      //bool test1=(controleEmail(mail)&&controlenum(numtel)&&controleVide(prenom)&&controleVide(nom)&&controleVide(adr));
-     if(test)
+    Commande CC;
+    bool test=E1.verifid(idemp);
+
+     if(test==false&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(adr))
    {E1.modifier();
    QMessageBox::information(nullptr, QObject::tr("Modification faite"),
                      QObject::tr("Modification faite\n"
@@ -492,8 +502,8 @@ ui->tabemp_2->setModel(E1.afficher());
 void MainWindow::on_supprimer_2_clicked()
 {
     Employe E2;
-      E1.setidemp(ui->le_id_3->text().toInt());
-         bool test=E2.verifid(E1.getidemp());
+      E2.setidemp(ui->le_id_3->text().toInt());
+         bool test=E2.verifid(E2.getidemp());
          if(test)
        {E2.supprimer(E2.getidemp());
        QMessageBox::information(nullptr, QObject::tr("Suppression terminer"),
@@ -768,7 +778,7 @@ void MainWindow::on_AjouterVehicule_clicked()
      {     bool test=V.ajouter();
         if(test==true)
         {msgBox.setText("Ajout avec succes.");
-            msgBox.setText("Ajout avec succes.");
+
           ui->tabvehicule->setModel(V1.afficher());
           ui->Matricule->setText("");
           ui->numerochassis->setText("");

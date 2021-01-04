@@ -31,5 +31,7 @@
         <file>img/Logout.png</file>
         <file>img/E.png</file>
         <file>img/Vehicules.png</file>
+        <file>img/colis.png</file>
+        <file>img/entrepots.png</file>
     </qresource>
 </RCC>

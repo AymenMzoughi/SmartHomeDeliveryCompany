@@ -1,4 +1,4 @@
-QT      += core gui sql multimedia charts serialport printsupport
+QT      += core gui sql multimedia charts serialport printsupport network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -58,4 +58,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     resource.qrc
 
-DISTFILES +=
+DISTFILES += \
+    img/colis.png \
+    img/entrepots.png

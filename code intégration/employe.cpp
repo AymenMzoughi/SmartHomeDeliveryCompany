@@ -142,8 +142,9 @@ QSqlQueryModel* Employe::afficher()
 }
 bool Employe::supprimer(int idemp)
 {           QSqlQuery query;
+            QString idemp_string=QString::number(idemp);
             query.prepare(" Delete from EMPLOYE where IDEMP=:IDEMP");
-            query.bindValue(0,idemp);
+            query.bindValue(0,idemp_string);
            return query.exec();
 
 
