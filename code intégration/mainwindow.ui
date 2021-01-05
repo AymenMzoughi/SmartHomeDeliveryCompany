@@ -327,7 +327,7 @@ color: rgb(255, 255, 255);</string>
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pcommande">
        <widget class="QGroupBox" name="commande">
@@ -2012,11 +2012,67 @@ font: 11pt &quot;Junior Prince&quot;;
           <string/>
          </property>
         </widget>
+        <widget class="QLabel" name="label_7">
+         <property name="geometry">
+          <rect>
+           <x>140</x>
+           <y>250</y>
+           <width>191</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Nombre des employes entré:</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>370</x>
+           <y>250</y>
+           <width>55</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>160</x>
+           <y>290</y>
+           <width>131</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Nombre des colis</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>350</x>
+           <y>290</y>
+           <width>61</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
         <zorder>pa</zorder>
         <zorder>label_10</zorder>
         <zorder>label_8</zorder>
         <zorder>le_pd_2</zorder>
         <zorder>le_ve_2</zorder>
+        <zorder>label_7</zorder>
+        <zorder>label_9</zorder>
+        <zorder>label_11</zorder>
+        <zorder>label_12</zorder>
        </widget>
       </widget>
       <widget class="QWidget" name="psav">
@@ -3992,7 +4048,7 @@ color: rgb(255, 255, 255);</string>
      <x>0</x>
      <y>0</y>
      <width>2059</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

@@ -143,6 +143,10 @@ public:
     QLabel *le_pd_2;
     QLabel *le_ve_2;
     QLabel *pa;
+    QLabel *label_7;
+    QLabel *label_9;
+    QLabel *label_11;
+    QLabel *label_12;
     QWidget *psav;
     QGroupBox *sav;
     QWidget *pclients;
@@ -898,11 +902,27 @@ public:
         pa = new QLabel(groupBox);
         pa->setObjectName(QStringLiteral("pa"));
         pa->setGeometry(QRect(0, 20, 921, 411));
+        label_7 = new QLabel(groupBox);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(140, 250, 191, 20));
+        label_9 = new QLabel(groupBox);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setGeometry(QRect(370, 250, 55, 16));
+        label_11 = new QLabel(groupBox);
+        label_11->setObjectName(QStringLiteral("label_11"));
+        label_11->setGeometry(QRect(160, 290, 131, 16));
+        label_12 = new QLabel(groupBox);
+        label_12->setObjectName(QStringLiteral("label_12"));
+        label_12->setGeometry(QRect(350, 290, 61, 21));
         pa->raise();
         label_10->raise();
         label_8->raise();
         le_pd_2->raise();
         le_ve_2->raise();
+        label_7->raise();
+        label_9->raise();
+        label_11->raise();
+        label_12->raise();
         stackedWidget_2->addWidget(pagedacceuil);
         psav = new QWidget();
         psav->setObjectName(QStringLiteral("psav"));
@@ -1499,7 +1519,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 2059, 21));
+        menubar->setGeometry(QRect(0, 0, 2059, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -1508,7 +1528,7 @@ public:
         retranslateUi(MainWindow);
 
         stackedWidget1->setCurrentIndex(1);
-        stackedWidget_2->setCurrentIndex(4);
+        stackedWidget_2->setCurrentIndex(2);
         tabWidget->setCurrentIndex(0);
         tabWidget_2->setCurrentIndex(0);
         tabWidget_3->setCurrentIndex(1);
@@ -1596,6 +1616,10 @@ public:
         le_pd_2->setText(QApplication::translate("MainWindow", "30", Q_NULLPTR));
         le_ve_2->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         pa->setText(QString());
+        label_7->setText(QApplication::translate("MainWindow", "Nombre des employes entr\303\251:", Q_NULLPTR));
+        label_9->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
+        label_11->setText(QApplication::translate("MainWindow", "Nombre des colis", Q_NULLPTR));
+        label_12->setText(QApplication::translate("MainWindow", "0", Q_NULLPTR));
         sav->setTitle(QApplication::translate("MainWindow", "S.A.V", Q_NULLPTR));
         client->setTitle(QApplication::translate("MainWindow", "CLIENTS", Q_NULLPTR));
         ajout_cl->setTitle(QString());

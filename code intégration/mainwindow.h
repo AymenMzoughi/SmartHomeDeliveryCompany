@@ -197,6 +197,8 @@ private:
     QByteArray data;
     int numdesv=0;
     int numplace=30;
+    int numemp=0;
+    int numcolis=0;
     QMediaPlayer *player;
     Clients E;
     CarteFidelite CF;

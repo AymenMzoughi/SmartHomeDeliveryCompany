@@ -25,13 +25,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
    ui->stackedWidget1->setCurrentIndex(0);
    //ui->stackedwidget_rfid->setCurrentIndex(0);
-   QPixmap pix("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
+   QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
    ui->photoEm->setPixmap(pix);
-   QPixmap pix2("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
+   QPixmap pix2("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
    ui->photoCong_2->setPixmap(pix2);
-   QPixmap pix3("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
+   QPixmap pix3("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
    ui->photoCmd->setPixmap(pix3);
-   QPixmap pix4("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
+   QPixmap pix4("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
    ui->photoVeh->setPixmap(pix4);
 
    QPixmap pix5("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
@@ -39,9 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
    QPixmap pix6("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
    ui->pa->setPixmap(pix6);
 
-   QPixmap pix7("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Clients.png");
+   QPixmap pix7("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Clients.png");
    ui->photoCli->setPixmap(pix7);
-   QPixmap pix8("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Carte Fid.png");
+   QPixmap pix8("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Carte Fid.png");
    ui->photoFid->setPixmap(pix8);
    QPixmap pix9("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Colis.png");
    ui->photoColis->setPixmap(pix9);
@@ -149,7 +149,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::update_label()
 {
-    data=A.read_from_arduino();
 
     // si les données reçues de arduino via la liaison série sont égales à 1*/
 }
@@ -895,6 +894,18 @@ void MainWindow::update_rfid()
     QString nump_string=QString::number(numplace);
        ui->le_ve_2->setText(numv_string);
       ui->le_pd_2->setText(nump_string);}
+    if(data=="7")
+    {
+       numemp++;
+       QString nume_string=QString::number(numemp);
+        ui->label_9->setText(nume_string);
+     }
+    if(data=="6")
+    { numcolis++;
+     QString nume_string=QString::number(numcolis);
+      ui->label_12->setText(nume_string);
+
+    }
         for(i=0; i<=5; i++)
        { if(data=="1")
         {
@@ -902,7 +913,7 @@ void MainWindow::update_rfid()
             ui->le_user_rfid->setText("mohamed amine aouididi");
             ui->le_email_rfid->setText("amine@gmail.com");
             ui->le_depart_rfid->setText("assistant de la gestion des clients");
-            QPixmap pix("C:/Users/Amine/Desktop/assistants photos/amine");
+            QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/assistants photos/amine");
             ui->le_photo->setPixmap(pix.scaled(100,100));
             ui->stackedWidget1->setCurrentIndex(1);
             ui->stackedWidget_2->setCurrentIndex(4);
@@ -918,7 +929,7 @@ void MainWindow::update_rfid()
                 ui->le_user_rfid->setText("Admin");
                 ui->le_email_rfid->setText("Admin@gmail.com");
                 ui->le_depart_rfid->setText("Administrateur");
-                QPixmap pix("C:/Users/Amine/Desktop/assistants photos/admin");
+                QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/assistants photos/admin");
                 ui->le_photo->setPixmap(pix.scaled(100,100));
 
                 ui->stackedWidget1->setCurrentIndex(1);
@@ -934,7 +945,7 @@ void MainWindow::update_rfid()
             ui->le_user_rfid->setText("");
             ui->le_email_rfid->setText("");
             ui->le_depart_rfid->setText("");
-            QPixmap pix("C:/Users/Amine/Desktop/assistants photos/black screen");
+            QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/assistants photos/black screen");
             ui->le_photo->setPixmap(pix.scaled(100,100));
         }
        }

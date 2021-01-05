@@ -30,7 +30,7 @@ public:
     {
         if (Statistique_veh->objectName().isEmpty())
             Statistique_veh->setObjectName(QStringLiteral("Statistique_veh"));
-        Statistique_veh->resize(891, 489);
+        Statistique_veh->resize(801, 525);
         Statistique_veh->setStyleSheet(QStringLiteral("border-image: url(:/img/img/PageA.png);"));
         label = new QLabel(Statistique_veh);
         label->setObjectName(QStringLiteral("label"));
