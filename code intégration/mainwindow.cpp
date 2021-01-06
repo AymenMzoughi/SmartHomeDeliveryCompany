@@ -1,21 +1,21 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include<QPrinter>
-#include<QPainter>
-#include<QPdfWriter>
+#include <QPrinter>
+#include <QPainter>
+#include <QPdfWriter>
 #include <QMessageBox>
-#include<QVBoxLayout>
-#include<QtDebug>
-#include<QFileInfo>
-#include<QFileDialog>
+#include <QVBoxLayout>
+#include <QtDebug>
+#include <QFileInfo>
+#include <QFileDialog>
 #include <QSettings>
 #include <QProcess>
 #include <QDebug>
 #include <QtPrintSupport>
-#include<QSqlQuery>
-#include<QMediaPlayer>
+#include <QSqlQuery>
+#include <QMediaPlayer>
 #include <QPixmap>
-#include"employe.h"
+#include "employe.h"
 #include "envoyermail.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -23,30 +23,41 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-   ui->stackedWidget1->setCurrentIndex(0);
-   //ui->stackedwidget_rfid->setCurrentIndex(0);
-   QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Emplyé.png");
+    ui->stackedWidget1->setCurrentIndex(0);
+
+
+   QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Emplyé.png");
    ui->photoEm->setPixmap(pix);
-   QPixmap pix2("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Congé.png");
+   QPixmap pix2("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Congé.png");
    ui->photoCong_2->setPixmap(pix2);
-   QPixmap pix3("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Commandes.png");
+   QPixmap pix3("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Commandes.png");
    ui->photoCmd->setPixmap(pix3);
-   QPixmap pix4("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Vehicules.png");
+   QPixmap pix4("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Vehicules.png");
    ui->photoVeh->setPixmap(pix4);
 
-   QPixmap pix5("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/login.png");
+   QPixmap pix5("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/login.png");
    ui->loginp->setPixmap(pix5);
-   QPixmap pix6("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/PageA.png");
+   QPixmap pix6("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/PageA.png");
    ui->pa->setPixmap(pix6);
 
-   QPixmap pix7("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Clients.png");
+   QPixmap pix7("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Clients.png");
    ui->photoCli->setPixmap(pix7);
-   QPixmap pix8("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/code intégration/img/Carte Fid.png");
+   QPixmap pix8("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Carte Fid.png");
    ui->photoFid->setPixmap(pix8);
-   QPixmap pix9("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/Colis.png");
+   QPixmap pix9("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/Colis.png");
    ui->photoColis->setPixmap(pix9);
-   QPixmap pix10("C:/Users/TheBoss'07/Desktop/Projet/Smart_HomeDeliveryCompany_2A9/code intégration/img/entrepots.png");
+   QPixmap pix10("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/img/entrepots.png");
    ui->photoEntr->setPixmap(pix10);
+
+    //******************************Aymen******************************//
+   ui->le_id_3->setValidator(new QIntValidator(1, 99999, this));
+   ui->le_numtel_2->setValidator(new QIntValidator(1, 99999999, this));
+   ui->le_idc_2->setValidator(new QIntValidator(1, 99999, this));
+   ui->dur_2->setValidator(new QIntValidator(1, 99, this));
+   ui->le_id_4->setModel(C1.afficherE());
+
+   ui->tabemp_2->setModel(E1.afficher());
+   ui->tabconge_2->setModel(C1.afficherc());
     //******************************amine******************************//
    ui->le_telephone_client->setValidator(new QIntValidator(10000000, 99999999, this));
 
@@ -64,9 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
 
    ui->cb_reff_modif->setModel(E.afficher_reference());
 
-   //music
-   player=new QMediaPlayer(this);
-   connect(player,&QMediaPlayer::positionChanged,this,&MainWindow::on_positionChanged);
+
 
    //**********************************ZEINEB*******************************************//
    ui->le_num->setValidator(new QIntValidator(0, 99999, this));
@@ -124,7 +133,10 @@ ui->affectercolis->setModel(CC.afficher_idcolis());
       ui->comboBox_entro->addItem("num salle");
       ui->tabentrep->setModel(ET1.afficher());
 
-
+      player->setMedia(QUrl::fromLocalFile("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/music.mp3"));
+      player->play();
+      qDebug()<<player->errorString();
+      QThread::sleep(1);
 
 
 //ard
@@ -143,7 +155,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
     A.close_arduino();
-    delete player;
+
 
 }
 
@@ -225,10 +237,11 @@ ui->le_role->setText(RecupRole);
         ui->pushButtonsav->setDisabled(false);
         ui->Commande->setDisabled(false);
         ui->pushButtonstock->setDisabled(false);
+        ui->label_3->setText("accés authorisé");
         ui->le_user_rfid->setText("Admin");
         ui->le_email_rfid->setText("Admin@gmail.com");
         ui->le_depart_rfid->setText("Administrateur");
-        QPixmap pix("C:/Users/Amine/Desktop/assistants photos/admin");
+        QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/admin.png");
         ui->le_photo->setPixmap(pix.scaled(100,100));
 
 
@@ -243,6 +256,13 @@ ui->le_role->setText(RecupRole);
            ui->pushButtonsav->setDisabled(true);
            ui->Commande->setDisabled(true);
           ui->pushButtonstock->setDisabled(false);
+          ui->label_3->setText("accés authorisé");
+          ui->le_user_rfid->setText("Meriem Kouki Amri");
+          ui->le_email_rfid->setText("mariem@gmail.com");
+          ui->le_depart_rfid->setText("assistant de la gestion de stock");
+          QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/meriem.png");
+          ui->le_photo->setPixmap(pix.scaled(100,100));
+
 
     }else if(RecupRole=="assistantEmploye")
      {
@@ -252,8 +272,16 @@ ui->le_role->setText(RecupRole);
          ui->pushButtonsav->setDisabled(true);
          ui->pushButtonstock->setDisabled(true);
          ui->Commande->setDisabled(true);
-
+         ui->label_3->setText("accés authorisé");
+         ui->le_user_rfid->setText("Aymen Mzoughi");
+         ui->le_email_rfid->setText("aymen@gmail.com");
+         ui->le_depart_rfid->setText("assistant de la gestion d'employée");
          ui->pushButtonemployees->setDisabled(false);
+
+         QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/aymen.png");
+         ui->le_photo->setPixmap(pix.scaled(100,100));
+
+
       }else if(RecupRole=="assistantClient")
      {
          ui->stackedWidget1->setCurrentIndex(1);
@@ -268,7 +296,7 @@ ui->le_role->setText(RecupRole);
          ui->le_user_rfid->setText("mohamed amine aouididi");
          ui->le_email_rfid->setText("amine@gmail.com");
          ui->le_depart_rfid->setText("assistant de la gestion des clients");
-         QPixmap pix("C:/Users/Amine/Desktop/assistants photos/amine");
+         QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/amine.png");
          ui->le_photo->setPixmap(pix.scaled(100,100));
 
      }else if(RecupRole=="assistantCommande")
@@ -280,6 +308,12 @@ ui->le_role->setText(RecupRole);
          ui->pushButtonstock->setDisabled(true);
          ui->pushButtonsav->setDisabled(true);
          ui->Commande->setDisabled(false);
+         ui->label_3->setText("accés authorisé");
+         ui->le_user_rfid->setText("zeineb mbarki");
+         ui->le_email_rfid->setText("zeineb@gmail.com");
+         ui->le_depart_rfid->setText("assistant de la gestion des commandes");
+         QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/zeineb.png");
+         ui->le_photo->setPixmap(pix.scaled(100,100));
      }else if(RecupRole=="assistantSAV")
      {
          ui->stackedWidget1->setCurrentIndex(1);
@@ -289,7 +323,12 @@ ui->le_role->setText(RecupRole);
          ui->pushButtonstock->setDisabled(true);
          ui->Commande->setDisabled(true);
          ui->pushButtonsav->setDisabled(false);
-
+         ui->label_3->setText("accés authorisé");
+         ui->le_user_rfid->setText("ahmed aziz mabrouki");
+         ui->le_email_rfid->setText("aziz@gmail.com");
+         ui->le_depart_rfid->setText("assistant de la gestion de SAV");
+         QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/aziz.png");
+         ui->le_photo->setPixmap(pix.scaled(100,100));
      }
   }else {
        ui->label_3->setText("[!]wrong username or password :( ");
@@ -305,6 +344,14 @@ void MainWindow::on_pushButton_clicked()
 
 
     ui->stackedWidget1->setCurrentIndex(0);
+    ui->le_user_rfid->setText("");
+    ui->le_email_rfid->setText("");
+    ui->le_depart_rfid->setText("");
+    ui->le_username->setText("");
+    ui->le_password->setText("");
+    QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/Black screen.png");
+    ui->le_photo->setPixmap(pix.scaled(100,100));
+    ui->label_3->setText("[+]....");
 
     //show();
 }
@@ -330,7 +377,7 @@ void MainWindow::on_pb_ajouter_2_clicked()
     ui->tabemp_2->setModel(E1.afficher());
     ui->comboBoxemp->setModel(V1.affiche_employer());
      ui->idemp->setModel(CO1.afficher_idemp());
-
+    ui->le_id_4->setModel(C1.afficherE());
     }
 
     else
@@ -342,7 +389,7 @@ void MainWindow::on_pb_ajouter_2_clicked()
 
 void MainWindow::on_pb_modifierc_2_clicked()
 {     int idc=ui->le_idc_2->text().toInt();
-      int idemp=ui->le_id_4->text().toInt();
+      int idemp=ui->le_id_4->currentText().toInt();
       QString nom=ui->le_nomc_2->text();
       QString prenom=ui->le_prenomc_2->text();
       QDate datedeb= ui->deb_2->date();
@@ -385,6 +432,7 @@ void MainWindow::on_pb_supprimerc_2_clicked()
                          QObject::tr("Modification faite\n"
                                      "Click Cancel to exit."), QMessageBox::Cancel);
 ui->tabconge_2->setModel(C1.afficherc());
+
        }
          else
              QMessageBox::critical(nullptr, QObject::tr("Suppression echouée"),
@@ -443,8 +491,9 @@ void MainWindow::on_tabemp_2_activated(const QModelIndex &index)
 
 void MainWindow::on_pb_ajouterc_2_clicked()
 {
+
     int idc=ui->le_idc_2->text().toInt();
-    int idemp=ui->le_id_4->text().toInt();
+    int idemp=ui->le_id_4->currentText().toInt();
     QString nom=ui->le_nomc_2->text();
     QString prenom=ui->le_prenomc_2->text();
     QDate datedeb= ui->deb_2->date();
@@ -458,7 +507,7 @@ void MainWindow::on_pb_ajouterc_2_clicked()
     bool test=C.verifid(idc);
    //bool test1=(controleVide(prenom)&&controleVide(nom)&&controleVide(etat));
      QMessageBox msgBox;
-     if(test==false&&C.ajouterc()&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(etat))
+     if(test==false&&C.ajouterc()&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(etat)&&CC.verifvidestring(ui->dur_2->text()))
        {
          msgBox.setText("Ajout avec succes.");
 
@@ -485,7 +534,7 @@ void MainWindow::on_modifier_2_clicked()
     Commande CC;
     bool test=E1.verifid(idemp);
 
-     if(test==false&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(adr))
+     if(test==true&&CC.verifvidestring(nom)&&CC.verifvidestring(prenom)&&CC.verifvidestring(adr))
    {E1.modifier();
    QMessageBox::information(nullptr, QObject::tr("Modification faite"),
                      QObject::tr("Modification faite\n"
@@ -494,7 +543,7 @@ ui->tabemp_2->setModel(E1.afficher());
    }
      else
          QMessageBox::critical(nullptr, QObject::tr("Modification non faite"),
-                     QObject::tr("Echec d'ajout, verifier les champs.\n"
+                     QObject::tr("Echec de modification, verifier les champs.\n"
                                  "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
@@ -503,12 +552,14 @@ void MainWindow::on_supprimer_2_clicked()
     Employe E2;
       E2.setidemp(ui->le_id_3->text().toInt());
          bool test=E2.verifid(E2.getidemp());
-         if(test)
-       {E2.supprimer(E2.getidemp());
+         if(test==true && E2.supprimer(E2.getidemp()))
+       {
        QMessageBox::information(nullptr, QObject::tr("Suppression terminer"),
                          QObject::tr("Modification faite\n"
                                      "Click Cancel to exit."), QMessageBox::Cancel);
 ui->tabemp_2->setModel(E1.afficher());
+ui->idemp->setModel(CO1.afficher_idemp());
+ui->le_id_4->setModel(C1.afficherE());
        }
          else
              QMessageBox::critical(nullptr, QObject::tr("Suppression echouée"),
@@ -536,7 +587,7 @@ void MainWindow::on_tabconge_2_activated(const QModelIndex &index)
       QString dur_string=QString::number(dur);
 
 
-            ui->le_id_4->setText(idemp_string);
+            ui->le_id_4->setCurrentText(idemp_string);
             ui->le_idc_2->setText(idc_string);
             ui->dur_2->setText(dur_string);
 
@@ -640,7 +691,7 @@ void MainWindow::on_supprimerCommandes_clicked()
            ui->montant->setText("");
 
           CC.updateetat(numtest);
-
+ui->affecternumcommande->setModel(CC.afficher_idcommande());
        }
        else
         {msgBox.setText("Echec de suppression");}
@@ -913,7 +964,7 @@ void MainWindow::update_rfid()
             ui->le_user_rfid->setText("mohamed amine aouididi");
             ui->le_email_rfid->setText("amine@gmail.com");
             ui->le_depart_rfid->setText("assistant de la gestion des clients");
-            QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/assistants photos/amine");
+            QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/amine.png");
             ui->le_photo->setPixmap(pix.scaled(100,100));
             ui->stackedWidget1->setCurrentIndex(1);
             ui->stackedWidget_2->setCurrentIndex(4);
@@ -929,7 +980,7 @@ void MainWindow::update_rfid()
                 ui->le_user_rfid->setText("Admin");
                 ui->le_email_rfid->setText("Admin@gmail.com");
                 ui->le_depart_rfid->setText("Administrateur");
-                QPixmap pix("D:/2eme/Projet/projet5/Smart_HomeDeliveryCompany_2A9/assistants photos/admin");
+                QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/admin.png");
                 ui->le_photo->setPixmap(pix.scaled(100,100));
 
                 ui->stackedWidget1->setCurrentIndex(1);
@@ -939,7 +990,69 @@ void MainWindow::update_rfid()
                 ui->Commande->setDisabled(false);
                 ui->pushButtonstock->setDisabled(false);
 
-        }else if(data=="0")
+        }else if(data=="aymen***")
+           {
+                ui->stackedWidget1->setCurrentIndex(1);
+                ui->stackedWidget_2->setCurrentIndex(1);
+                ui->pushButtonclients->setDisabled(true);
+                ui->pushButtonsav->setDisabled(true);
+                ui->pushButtonstock->setDisabled(true);
+                ui->Commande->setDisabled(true);
+                ui->label_3->setText("accés authorisé");
+                ui->le_email_rfid->setText("aymen@gmail.com");
+                ui->le_depart_rfid->setText("assistant de la gestion d'employée");
+                ui->pushButtonemployees->setDisabled(false);
+
+                QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/aymen.png");
+                ui->le_photo->setPixmap(pix.scaled(100,100));
+            }     else if(data=="zeineb***")
+                    {
+                ui->stackedWidget1->setCurrentIndex(1);
+                ui->stackedWidget_2->setCurrentIndex(0);
+                ui->pushButtonclients->setDisabled(true);
+                ui->pushButtonemployees->setDisabled(true);
+                ui->pushButtonstock->setDisabled(true);
+                ui->pushButtonsav->setDisabled(true);
+                ui->Commande->setDisabled(false);
+                ui->label_3->setText("accés authorisé");
+                ui->le_user_rfid->setText("zeineb mbarki");
+                ui->le_email_rfid->setText("zeineb@gmail.com");
+                ui->le_depart_rfid->setText("assistant de la gestion des commandes");
+                QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/zeineb.jpg");
+                ui->le_photo->setPixmap(pix.scaled(100,100));
+            }else if(data=="meriem***")
+
+            {
+                ui->stackedWidget1->setCurrentIndex(1);
+                ui->stackedWidget_2->setCurrentIndex(5);
+                  ui->pushButtonclients->setDisabled(true);
+                  ui->pushButtonemployees->setDisabled(true);
+                  ui->pushButtonsav->setDisabled(true);
+                  ui->Commande->setDisabled(true);
+                 ui->pushButtonstock->setDisabled(false);
+                 ui->label_3->setText("accés authorisé");
+                 ui->le_email_rfid->setText("mariem@gmail.com");
+                 ui->le_depart_rfid->setText("assistant de la gestion de stock");
+                 QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/meriem.jpg");
+                 ui->le_photo->setPixmap(pix.scaled(100,100));
+            }else if(data=="aziz***")
+            {
+                ui->stackedWidget1->setCurrentIndex(1);
+                ui->stackedWidget_2->setCurrentIndex(3);
+                ui->pushButtonclients->setDisabled(true);
+                ui->pushButtonemployees->setDisabled(true);
+                ui->pushButtonstock->setDisabled(true);
+                ui->Commande->setDisabled(true);
+                ui->pushButtonsav->setDisabled(false);
+                ui->label_3->setText("accés authorisé");
+                ui->le_user_rfid->setText("ahmed aziz mabrouki");
+                ui->le_email_rfid->setText("aziz@gmail.com");
+                ui->le_depart_rfid->setText("assistant de la gestion de SAV");
+                QPixmap pix("C:/Users/TheBoss'07/Desktop/Test2/DevLobby/assistants photos/aziz.png");
+                ui->le_photo->setPixmap(pix.scaled(100,100));
+            }
+
+                else if(data=="0")
         {
             ui->label_3->setText("access denied");
             ui->le_user_rfid->setText("");
@@ -1035,17 +1148,15 @@ bool MainWindow:: controlCheque(int test)
 
 
 
-void MainWindow::on_slider_volume_sliderMoved(int position)
+/*void MainWindow::on_slider_volume_sliderMoved(int position)
 {
     player->setVolume(position);
-}
+}*/
 
 void MainWindow::on_start_clicked()
 {
-    //load the file
-    player->setMedia(QUrl::fromLocalFile("C:/Users/Amine/Desktop/projetcpp/music.mp3"));
-    player->play();
-    qDebug()<< player->errorString();
+    //music
+
 }
 
 void MainWindow::on_pause_clicked()
@@ -1054,10 +1165,10 @@ void MainWindow::on_pause_clicked()
 }
 
 
-void MainWindow::on_positionChanged(qint64 position)
+/*void MainWindow::on_positionChanged(qint64 position)
 {
     ui->slider_volume->setMaximum(position);
-}
+}*/
 
 void MainWindow::on_tab_cf_activated(const QModelIndex &index)
 {
@@ -1164,6 +1275,7 @@ C1.setRef(ui->cb_reff_modif->currentText().toInt());
     ui->tab_client->setModel(C1.afficher());
     ui->cb_reff_modif->setModel(C1.afficher_reference());
     ui->comboBox_refer_cf->setModel(CF.afficher_ref());
+    ui->comboBoxidclient->setModel(CO1.afficher_idclient());
     }else
     { msgBox.setText("Echec de supprission");}
         msgBox.exec();
@@ -1352,15 +1464,6 @@ void MainWindow::on_comboBox_tri_cf_activated(const QString &arg1)
     ui->tab_cf->setModel(CF.afficher_choix(choix));
 }
 
-void MainWindow::on_pushButton_11_clicked()
-{
-    close();
-}
-
-void MainWindow::on_pushButton_12_clicked()
-{
-    close();
-}
 
 void MainWindow::on_envoyerCmail_clicked()
 {
@@ -1472,7 +1575,7 @@ void MainWindow::on_supprimer_colis_clicked()
        msgBox.setText("Suppression avec succes.");
 
            ui->tabcolis->setModel(Cl1.afficher());
-
+ui->affectercolis->setModel(CC.afficher_idcolis());
        }
        else
         {msgBox.setText("Echec de suppression");}
@@ -1620,4 +1723,9 @@ void MainWindow::on_pushButton_3_clicked()
     EnvoyerMail E;
     E.setModal(true);
     E.exec();
+}
+
+void MainWindow::on_pushButton_13_clicked()
+{
+    close();
 }

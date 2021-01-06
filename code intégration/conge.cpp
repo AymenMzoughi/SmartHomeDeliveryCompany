@@ -163,6 +163,14 @@ QSqlQueryModel* Conge::afficherc()
 
 
 }
+
+QSqlQueryModel *Conge::afficherE()
+{
+    QSqlQueryModel* model=new QSqlQueryModel();
+    model->setQuery("SELECT IDEMP FROM EMPLOYE");
+
+    return model;
+}
 bool Conge::supprimerc(int idc)
 {           QSqlQuery query;
             query.prepare(" Delete from CONGE where IDC=:IDC");

@@ -30,6 +30,7 @@ Conge();
   bool modifierc();
 
   QSqlQueryModel* afficherc();
+  QSqlQueryModel* afficherE();
   QSqlQueryModel* chercherc(int,QString);
   QSqlQueryModel* trierc(int);
 

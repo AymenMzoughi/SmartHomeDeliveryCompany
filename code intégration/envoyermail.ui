@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>EnvoyerMail</class>
- <widget class="QDialog" name="EnvoyerMail">
+ <widget class="QWidget" name="EnvoyerMail">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>673</width>
-    <height>680</height>
+    <width>834</width>
+    <height>765</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Form</string>
   </property>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>60</x>
+     <y>20</y>
      <width>661</width>
      <height>641</height>
     </rect>

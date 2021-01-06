@@ -26,6 +26,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    QMediaPlayer* player= new QMediaPlayer;
 
 private slots:
     void on_Commande_clicked();
@@ -114,13 +115,13 @@ private slots:
     bool controlPoints(int test);
     bool controlCheque(int test);
     void update_rfid();
-    void on_slider_volume_sliderMoved(int position);
+    //void on_slider_volume_sliderMoved(int position);
 
     void on_start_clicked();
 
     void on_pause_clicked();
 
-    void on_positionChanged(qint64 position);
+    //void on_positionChanged(qint64 position);
 
     void on_tab_cf_activated(const QModelIndex &index);
 
@@ -153,10 +154,6 @@ private slots:
 
     void on_comboBox_tri_cf_activated(const QString &arg1);
 
-    void on_pushButton_11_clicked();
-
-    void on_pushButton_12_clicked();
-
     void on_envoyerCmail_clicked();
 
     void on_ajouter_colis_clicked();
@@ -185,6 +182,8 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_13_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe E1;
@@ -199,7 +198,6 @@ private:
     int numplace=30;
     int numemp=0;
     int numcolis=0;
-    QMediaPlayer *player;
     Clients E;
     CarteFidelite CF;
     colis Cl1;

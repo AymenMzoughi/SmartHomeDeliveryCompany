@@ -6,32 +6,33 @@
         <file>img/Arreter.png</file>
         <file>img/Boutons.png</file>
         <file>img/Carte Fid.png</file>
+        <file>img/clear.png</file>
+        <file>img/Clients (2).png</file>
         <file>img/Clients.png</file>
+        <file>img/colis.png</file>
+        <file>img/commande.png</file>
         <file>img/Commandes.png</file>
         <file>img/Commencer.png</file>
         <file>img/Congé.png</file>
+        <file>img/E.png</file>
         <file>img/Emplyé.png</file>
+        <file>img/entrepots.png</file>
         <file>img/envoyermail.png</file>
         <file>img/Imprimer.png</file>
         <file>img/LD.png</file>
+        <file>img/Login (2).png</file>
+        <file>img/Login.png</file>
+        <file>img/Logout.png</file>
         <file>img/Modifier.png</file>
+        <file>img/Page (2).png</file>
+        <file>img/Page.png</file>
+        <file>img/PageA.png</file>
         <file>img/Rechercher.png</file>
+        <file>img/SAV.png</file>
+        <file>img/stat.png</file>
+        <file>img/Stock.png</file>
         <file>img/Supprimer.png</file>
         <file>img/Trier.png</file>
-        <file>img/stat.png</file>
-        <file>img/Clients (2).png</file>
-        <file>img/commande.png</file>
-        <file>img/Login.png</file>
-        <file>img/PageA.png</file>
-        <file>img/SAV.png</file>
-        <file>img/Stock.png</file>
-        <file>img/Page.png</file>
-        <file>img/clear.png</file>
-        <file>img/Login (2).png</file>
-        <file>img/Logout.png</file>
-        <file>img/E.png</file>
         <file>img/Vehicules.png</file>
-        <file>img/colis.png</file>
-        <file>img/entrepots.png</file>
     </qresource>
 </RCC>
